@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import React, { useState, useEffect } from 'react'
-import Text from './components/Text'
-import PostCard from './components/PostCard'
+import Text from '../components/Text'
+import PostCard from '../components/PostCard'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -50,7 +50,7 @@ export default function Home() {
           </p>
         </div>
 
-        <h1 className={styles.center}><Text text="newest_posts" lang={userLanguage}/></h1>
+        <h1 className={styles.center}><Text text="newest_posts" lang={userLanguage} /></h1>
 
         <div className={styles.grid}>
           {posts.map(post => {
