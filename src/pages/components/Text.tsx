@@ -18,13 +18,13 @@ const Text: FC<Props> = (props) => {
 
     let userLanguage = props.lang
 
-    if (userLanguage.includes('en')) {
+    // if (userLanguage.includes('en')) {
+        // userLanguage = 'en'
+    // } else if (userLanguage.includes('pl')) {
+        // userLanguage = 'pl'
+    // } else {
         userLanguage = 'en'
-    } else if (userLanguage.includes('pl')) {
-        userLanguage = 'pl'
-    } else {
-        userLanguage = 'en'
-    }
+    // }
 
     const translation = translations[props.text][userLanguage];
 
