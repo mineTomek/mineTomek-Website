@@ -24,7 +24,7 @@ export default function Home() {
     posts.push({
       name: "A name",
       description: "A long description that is soo long that it needs few lines to be properly displayed in a textbox. It is so long that it never ends. Or it does... But who knows. No one is ever going to read this anyway.",
-      link: "youtube.com",
+      link: "https://youtube.com",
       image: "https://source.unsplash.com/1600x900/?coding"
     });
   }
