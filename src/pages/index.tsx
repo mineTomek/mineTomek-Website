@@ -25,7 +25,7 @@ export default function Home() {
       name: "A name",
       description: "A long description that is soo long that it needs few lines to be properly displayed in a textbox. It is so long that it never ends. Or it does... But who knows. No one is ever going to read this anyway.",
       link: "youtube.com",
-      image: ""
+      image: "https://source.unsplash.com/1600x900/?coding"
     });
   }
 
@@ -56,7 +56,7 @@ export default function Home() {
           {posts.map(post => {
             console.log(post)
             return (
-              <PostCard key={post.name} name={post.name} descriprion={post.description} link={post.link} imageSrc="https://source.unsplash.com/random/800x600" />
+              <PostCard key={post.name} name={post.name} descriprion={post.description} link={post.link} imageSrc={post.image} />
             )
           })}
         </div>
