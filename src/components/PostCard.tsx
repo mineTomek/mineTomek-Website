@@ -33,8 +33,7 @@ const PostCard: FC<Props> = (props) => {
             <div className={styles.image}>
                 <img
                     src={props.imageSrc}
-                    // width={400}
-                    // height={300}
+                    alt="Post image"
                 />
             </div>
         </a>
