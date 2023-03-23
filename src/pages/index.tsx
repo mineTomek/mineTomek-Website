@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styles from '@/styles/Home.module.css'
 import PostCard from '../components/PostCard'
 import Text from '../components/Text'
-// import Logo from "../../public/logo.svg"
+import Logo from "../components/Logo"
 import Image from 'next/image'
 import Head from 'next/head'
 //'next/font/google'
@@ -46,12 +46,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            <Image
-              src="/logo.svg"
-              alt="mineTomek's logo"
-              width={30}
-              height={30}
-            />
+            <Logo width={32} height={32}/>
             mineTomek
           </p>
         </div>
