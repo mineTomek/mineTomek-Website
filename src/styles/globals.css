@@ -16,8 +16,9 @@
   --font-title: 'Kdam Thmor Pro';
 
   --foreground: #000;
-  --background-start: 214, 219, 220;
-  --background-end: 255, 255, 255;
+  --background-start: 212, 212, 220;
+  /* --background-end: 255, 255, 255; */
+  --background-end: 212, 212, 220;
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
@@ -31,7 +32,7 @@
     #00000080
   );
 
-  --callout-rgb: 238, 240, 241;
+  --callout-rgb: 210, 208, 209;
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 109, 197, 59;
@@ -41,8 +42,7 @@
   :root {
     --foreground: #fff;
     --background-start: 13, 17, 22;
-    /* --background-end: 13, 17, 22;*/
-    --background-end: 8, 12, 17;
+    --background-end: 6, 10, 15;
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
