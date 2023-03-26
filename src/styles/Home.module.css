@@ -136,8 +136,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .logo,
-  .thirteen img {
+  .svg {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
 }
