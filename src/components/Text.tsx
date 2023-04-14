@@ -18,9 +18,7 @@ const Text: FC<Props> = (props) => {
 
     let userLanguage = props.lang
 
-    if (userLanguage.includes('en')) {
-        userLanguage = 'en'
-    } else if (userLanguage.includes('pl')) {
+    if (userLanguage.includes('pl')) {
         userLanguage = 'pl'
     } else {
         userLanguage = 'en'
