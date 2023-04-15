@@ -32,9 +32,9 @@ export default function Home() {
     'computer scientist',
     'agumented reality',
     'coding',
-    'software development',
     'software engineering',
     'virtual reality',
+    'ChatGPT'
   ]
 
   useEffect(() => {

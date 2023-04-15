@@ -51,8 +51,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
-  width: var(--max-width);
+  grid-template-columns: repeat(4, 25%);
+  /* width: var(--max-width); */
   max-width: 100%;
 }
 
