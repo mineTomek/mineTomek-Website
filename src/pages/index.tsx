@@ -30,7 +30,7 @@ export default function Home() {
     'hacker',
     'python coding',
     'computer scientist',
-    'agumented reality',
+    'augmented reality',
     'coding',
     'software engineering',
     'virtual reality',
