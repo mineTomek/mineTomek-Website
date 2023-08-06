@@ -34,7 +34,9 @@ export default function Home() {
     'coding',
     'software engineering',
     'virtual reality',
-    'ChatGPT'
+    'ChatGPT',
+    'GPT-4',
+    'Unity',
   ]
 
   useEffect(() => {
