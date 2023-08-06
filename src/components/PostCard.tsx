@@ -6,7 +6,7 @@ import React, { FC } from 'react'
 type Props = {
     name: string,
     link: string,
-    descriprion: string,
+    description: string,
     imageSrc: string
 }
 
@@ -22,7 +22,7 @@ const PostCard: FC<Props> = (props) => {
                 {props.name} <span><FontAwesomeIcon icon={faQuoteRight} style={{color: "#ccc"}} /></span>
             </h2>
             <p>
-                {props.descriprion}
+                {props.description}
             </p>
             {/* <Image
                 src={props.imageSrc}
