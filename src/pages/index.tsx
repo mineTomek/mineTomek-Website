@@ -6,10 +6,6 @@ import Logo from '../components/Logo'
 import Head from 'next/head'
 //'next/font/google'
 
-async function getRandomNumber(from: number, to: number): Promise<number> {
-  return Math.random() * to + from;
-}
-
 export default function Home() {
   const [userLanguage, setUserLanguage] = useState('en-US')
   const [words, setWords] = useState<string[]>([])
