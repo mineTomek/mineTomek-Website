@@ -88,7 +88,7 @@ export default function Home() {
             <PostCard 
               key={post.index} 
               name={post.keyword.split(' ').map(word => (word[0].toUpperCase() + word.slice(1))).join(' ')} 
-              descriprion={post.description} 
+              description={post.description} 
               link={`https://unsplash.com/s/photos/${post.keyword}`} 
               imageSrc={`https://source.unsplash.com/1600x900/?${post.keyword}`} />
             )
