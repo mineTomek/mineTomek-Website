@@ -52,7 +52,6 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 25%);
-  /* width: var(--max-width); */
   max-width: 100%;
 }
 
