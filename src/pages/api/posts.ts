@@ -1,13 +1,22 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import createError from '@/middleware/error'
+import getDb from '@/middleware/db'
 
-type Data = {
-    data: string
-}
-
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse/*<Data>*/
 ) {
-    res.status(200).json({ data: "All the posts : " + req.query["test"] })
+  try {
+    const db = await getDb()
+
+    const collection = db.collection('posts')
+
+    const posts = await collection.find({}).toArray();
+
+    res.status(200).json( posts )
+
+  } catch (error) {
+    createError((error as Error).message, res)
+  }
 }
