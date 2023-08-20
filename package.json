@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier check": "prettier -c",
+    "prettier list": "prettier -l",
+    "prettier write": "prettier -w"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
