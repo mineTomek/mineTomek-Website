@@ -11,7 +11,19 @@ export default async function handler(
 
     const collection = db.collection('posts')
 
-    const posts = await collection.find({}).toArray()
+    let query = {}
+
+    const { q } = req.query
+
+    if (q) {
+      try {
+        query = JSON.parse(q.toString())
+      } catch (error) {
+        throw new Error('Invalid query parameter')
+      }
+    }
+
+    const posts = await collection.find(query).toArray()
 
     res.status(200).json(posts)
   } catch (error) {
