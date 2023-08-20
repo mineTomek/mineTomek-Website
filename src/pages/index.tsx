@@ -44,51 +44,79 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       setUserLanguage(window.navigator.language)
     }
-  }, []);
+  }, [])
 
-  let posts = [];
+  let posts = []
 
   for (let i = 0; i < words.length; i++) {
     const keyword = words[i]
     posts.push({
       index: i,
       description: `A long description about ${keyword} that is soo long that it needs few lines to be properly displayed in a textbox. It is so long that it never ends. Or it does... But who knows. No one is ever going to read this anyway. It's all about ${keyword}.`,
-      keyword: keyword
-    });
+      keyword: keyword,
+    })
   }
 
   return (
     <>
       <Head>
         <title>mineTomek</title>
-        <meta name="description" content="mineTomek's Website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name='description'
+          content="mineTomek's Website"
+        />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1'
+        />
         {/* <link rel="icon" type="image/svg+xml" href={} /> */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <meta name="theme-color" content="#6dc53b" />
+        <link
+          rel='icon'
+          type='image/svg+xml'
+          href='/favicon.svg'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          href='/favicon.png'
+        />
+        <meta
+          name='theme-color'
+          content='#6dc53b'
+        />
       </Head>
 
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            <Logo width={32} height={32}/>
+            <Logo
+              width={32}
+              height={32}
+            />
             mineTomek
           </p>
         </div>
 
-        <h1 className={styles.center}><Text text="newest_posts" lang={userLanguage} /></h1>
+        <h1 className={styles.center}>
+          <Text
+            text='newest_posts'
+            lang={userLanguage}
+          />
+        </h1>
 
         <div className={styles.grid}>
           {posts.map(post => (
-            <PostCard 
-              key={post.index} 
-              name={post.keyword.split(' ').map(word => (word[0].toUpperCase() + word.slice(1))).join(' ')} 
-              description={post.description} 
-              link={`https://unsplash.com/s/photos/${post.keyword}`} 
-              imageSrc={`https://source.unsplash.com/1600x900/?${post.keyword}`} />
-            )
-          )}
+            <PostCard
+              key={post.index}
+              name={post.keyword
+                .split(' ')
+                .map(word => word[0].toUpperCase() + word.slice(1))
+                .join(' ')}
+              description={post.description}
+              link={`https://unsplash.com/s/photos/${post.keyword}`}
+              imageSrc={`https://source.unsplash.com/1600x900/?${post.keyword}`}
+            />
+          ))}
         </div>
       </main>
     </>
