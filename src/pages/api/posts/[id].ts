@@ -16,7 +16,7 @@ export default async function handler(
     const id = req.query.id as string;
 
     if (!ObjectId.isValid(id)) {
-      createError("Invalid ObjectId: " + id, res, undefined, 400)
+      createError('Invalid ObjectId: ' + id, res, 400)
     }
 
     const post = await collection.findOne({"_id": new ObjectId(id)})
@@ -24,6 +24,6 @@ export default async function handler(
     res.status(200).json(post)
 
   } catch (error) {
-    createError((error as Error).message, res)
+    createError((error as Error).message, res, 500, error as Error)
   }
 }

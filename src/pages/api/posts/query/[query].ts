@@ -30,6 +30,6 @@ export default async function handler(
     res.status(200).json(posts)
 
   } catch (error) {
-    createError((error as Error).message, res)
+    createError((error as Error).message, res, 500, error as Error)
   }
 }
