@@ -1,6 +1,6 @@
 import type { NextApiResponse } from "next"
 
-export default function createError(errorMessage: string | undefined, res: NextApiResponse, error: Error | undefined = undefined, errorCode: number = 500) {
+export default function createError(errorMessage: string | undefined, res: NextApiResponse, errorCode: number = 500, error: Error | undefined = undefined) {
     const errorStack = error == undefined ? null : (process.env.NODE_ENV === 'production' ? null : (error as Error).stack)
 
     res.status(errorCode).json({
