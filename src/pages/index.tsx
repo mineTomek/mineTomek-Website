@@ -70,6 +70,10 @@ export default function Home() {
           />
         </h1>
 
+        {isLoading && <p>Loading...</p>}
+
+        {error && <p>Error: {JSON.stringify(error)}</p>}
+
         {!isLoading && !error && (
           <div className={styles.grid}>
             {data!.map((post, i) => (
