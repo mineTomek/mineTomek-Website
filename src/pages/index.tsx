@@ -8,36 +8,8 @@ import Head from 'next/head'
 
 export default function Home() {
   const [userLanguage, setUserLanguage] = useState('en-US')
-  const [words, setWords] = useState<string[]>([])
 
-  const localWords = [
-    'code',
-    'programming',
-    'project management',
-    'programming language',
-    'computers',
-    'coding algorithms',
-    'code syntax',
-    'video games',
-    'coder',
-    'programmer',
-    'developer',
-    'software engineer',
-    'hacker',
-    'python coding',
-    'computer scientist',
-    'augmented reality',
-    'coding',
-    'software engineering',
-    'virtual reality',
-    'ChatGPT',
-    'GPT-4',
-    'Unity',
-  ]
-
-  useEffect(() => {
-    setWords(localWords.sort(() => Math.random() - 0.5))
-  }, [])
+  const { data, isLoading, error } = useSWR<Post[]>('/api/posts', fetcher)
 
   useEffect(() => {
     // Load the navigator object only on the client-side
@@ -46,16 +18,7 @@ export default function Home() {
     }
   }, [])
 
-  let posts = []
 
-  for (let i = 0; i < words.length; i++) {
-    const keyword = words[i]
-    posts.push({
-      index: i,
-      description: `A long description about ${keyword} that is soo long that it needs few lines to be properly displayed in a textbox. It is so long that it never ends. Or it does... But who knows. No one is ever going to read this anyway. It's all about ${keyword}.`,
-      keyword: keyword,
-    })
-  }
 
   return (
     <>
@@ -105,16 +68,7 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {posts.map(post => (
             <PostCard
-              key={post.index}
-              name={post.keyword
-                .split(' ')
-                .map(word => word[0].toUpperCase() + word.slice(1))
-                .join(' ')}
-              description={post.description}
-              link={`https://unsplash.com/s/photos/${post.keyword}`}
-              imageSrc={`https://source.unsplash.com/1600x900/?${post.keyword}`}
             />
           ))}
         </div>
