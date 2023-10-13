@@ -15,13 +15,10 @@ export default function Home() {
   const { data, isLoading, error } = useSWR<Post[]>('/api/posts', fetcher)
 
   useEffect(() => {
-    // Load the navigator object only on the client-side
     if (typeof window !== 'undefined') {
       setUserLanguage(window.navigator.language)
     }
   }, [])
-
-
 
   return (
     <>
