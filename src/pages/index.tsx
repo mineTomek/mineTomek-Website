@@ -70,11 +70,21 @@ export default function Home() {
           />
         </h1>
 
-        <div className={styles.grid}>
-            <PostCard
-            />
-          ))}
-        </div>
+        {!isLoading && !error && (
+          <div className={styles.grid}>
+            {data!.map((post, i) => (
+              <PostCard
+                key={post._id.toString()}
+                name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
+                description={
+                  userLanguage === 'pl_PL' ? post.content.pl : post.content.en
+                }
+                link={`https://unsplash.com/s/photos/${post.title}`}
+                imageSrc={`https://source.unsplash.com/1600x900/?${post.title}`}
+              />
+            ))}
+          </div>
+        )}
       </main>
     </>
   )
