@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import styles from '@/styles/Home.module.css'
-import PostCard from '../components/PostCard'
 import Text from '../components/Text'
 import Logo from '../components/Logo'
 import Head from 'next/head'
-//'next/font/google'
+import useSWR from 'swr'
+import Post from '@/types/Post'
+import PostCard from '@/components/PostCard'
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
   const [userLanguage, setUserLanguage] = useState('en-US')
