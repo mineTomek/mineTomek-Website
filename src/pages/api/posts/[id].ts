@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import createError from '@/middleware/error'
-import getDb from '@/middleware/db'
+import createError from '@/helpers/error'
+import getDb from '@/helpers/db'
 import { ObjectId } from 'mongodb'
 
 export default async function handler(
