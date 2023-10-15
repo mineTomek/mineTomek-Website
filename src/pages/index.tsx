@@ -71,7 +71,7 @@ export default function Home() {
 
         {error && <p>Error: {JSON.stringify(error)}</p>}
 
-        {!isLoading && !error && (
+        {(data && !isLoading && !error) && (
           <div className={styles.grid}>
             {data!.map((post, i) => (
               <PostCard
@@ -86,6 +86,8 @@ export default function Home() {
             ))}
           </div>
         )}
+
+        {!data && <p> Data is not available!</p>}
       </main>
     </>
   )
