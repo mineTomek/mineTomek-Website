@@ -9,8 +9,6 @@ export default function createError(
   const errorStack =
     error == undefined
       ? null
-      : process.env.NODE_ENV === 'production'
-      ? null
       : (error as Error).stack
 
   res.status(errorCode).json({
