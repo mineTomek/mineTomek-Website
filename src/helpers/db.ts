@@ -7,6 +7,10 @@ export default async function getDb(dbName: string = 'website'): Promise<Db> {
     return cachedDb
   }
 
+  if (process.env.MONGODB_URI === undefined) {
+    throw new Error('MONGODB_URI environment variable is undefined')
+  }
+
   const client = new MongoClient(process.env.MONGODB_URI!)
 
   cachedDb = client.db(dbName)
