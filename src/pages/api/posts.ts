@@ -6,35 +6,35 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json([
-    {
-      _id: 'id',
-      title: { pl: 'Tytuł', en: 'Title' },
-      content: { pl: 'Zawartość', en: 'Content' },
-    },
-  ])
+  try {
+    const db = await getDb()
 
-  // try {
-  //   const db = await getDb()
+    const collection = db.collection('posts')
 
-  //   const collection = db.collection('posts')
+    res.status(200).json([
+      {
+        _id: 'id',
+        title: { pl: 'Tytuł', en: collection.namespace },
+        content: { pl: 'Zawartość', en: 'Content' },
+      },
+    ])
 
-  //   let query = {}
+    // let query = {}
 
-  //   const { q } = req.query
+    // const { q } = req.query
 
-  //   if (q) {
-  //     try {
-  //       query = JSON.parse(q.toString())
-  //     } catch (error) {
-  //       throw new Error('Invalid query parameter')
-  //     }
-  //   }
+    // if (q) {
+    //   try {
+    //     query = JSON.parse(q.toString())
+    //   } catch (error) {
+    //     throw new Error('Invalid query parameter')
+    //   }
+    // }
 
-  //   const posts = await collection.find(query).toArray()
+    // const posts = await collection.find(query).toArray()
 
-  //   res.status(200).json(posts)
-  // } catch (error) {
-  //   createError((error as Error).message, res, 500, error as Error)
-  // }
+    // res.status(200).json(posts)
+  } catch (error) {
+    createError((error as Error).message, res, 500, error as Error)
+  }
 }
