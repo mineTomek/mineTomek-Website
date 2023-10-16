@@ -13,15 +13,15 @@ export default async function handler(
 
     let query = {}
 
-    // const { q } = req.query
+    const { q } = req.query
 
-    // if (q) {
-    //   try {
-    //     query = JSON.parse(q.toString())
-    //   } catch (error) {
-    //     throw new Error('Invalid query parameter')
-    //   }
-    // }
+    if (q) {
+      try {
+        query = JSON.parse(q.toString())
+      } catch (error) {
+        throw new Error('Invalid query parameter')
+      }
+    }
 
     const posts = await collection.find(query).toArray()
 
