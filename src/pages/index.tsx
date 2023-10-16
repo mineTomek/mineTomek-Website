@@ -80,8 +80,8 @@ export default function Home() {
                 description={
                   userLanguage === 'pl_PL' ? post.content.pl : post.content.en
                 }
-                link={`https://unsplash.com/s/photos/${post.title}`}
-                imageSrc={`https://source.unsplash.com/1600x900/?${post.title}`}
+                link={''}
+                imageSrc={post.imageUrl}
               />
             ))}
           </div>

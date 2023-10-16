@@ -7,6 +7,7 @@ export default interface Post {
   title: { en: string; pl: string }
   content: { en: string; pl: string }
   languages: string[]
+  imageUrl: string
   views: number
   categoryId: ObjectId
   categoryVariation: number
