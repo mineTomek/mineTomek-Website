@@ -6,15 +6,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json({
-    posts: [
-      {
-        _id: 'id',
-        title: { pl: 'Tytuł', en: 'Title' },
-        content: { pl: 'Zawartość', en: 'Content' },
-      },
-    ],
-  })
+  res.status(200).json([
+    {
+      _id: 'id',
+      title: { pl: 'Tytuł', en: 'Title' },
+      content: { pl: 'Zawartość', en: 'Content' },
+    },
+  ])
 
   // try {
   //   const db = await getDb()
