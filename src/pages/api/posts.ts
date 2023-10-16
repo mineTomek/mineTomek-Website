@@ -1,13 +1,32 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import createError from '@/helpers/error'
+import getDb from '@/helpers/db'
 
-type Data = {
-    data: string
-}
-
-export default function handler(
-    req: NextApiRequest,
-    res: NextApiResponse<Data>
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
 ) {
-    res.status(200).json({ data: "All the posts : " + req.query["test"] })
+  try {
+    const db = await getDb()
+
+    const collection = db.collection('posts')
+
+    let query = {}
+
+    const { q } = req.query
+
+    if (q) {
+      try {
+        query = JSON.parse(q.toString())
+      } catch (error) {
+        throw new Error('Invalid query parameter')
+      }
+    }
+
+    const posts = await collection.find(query).toArray()
+
+    res.status(200).json(posts)
+  } catch (error) {
+    createError((error as Error).message, res, 500, error as Error)
+  }
 }
