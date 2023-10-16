@@ -11,15 +11,7 @@ export default async function handler(
 
     const collection = db.collection('posts')
 
-    res.status(200).json([
-      {
-        _id: 'id',
-        title: { pl: 'Tytuł', en: collection.namespace },
-        content: { pl: 'Zawartość', en: 'Content' },
-      },
-    ])
-
-    // let query = {}
+    let query = {}
 
     // const { q } = req.query
 
@@ -31,9 +23,9 @@ export default async function handler(
     //   }
     // }
 
-    // const posts = await collection.find(query).toArray()
+    const posts = await collection.find(query).toArray()
 
-    // res.status(200).json(posts)
+    res.status(200).json(posts)
   } catch (error) {
     createError((error as Error).message, res, 500, error as Error)
   }
