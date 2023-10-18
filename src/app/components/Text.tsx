@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import data from '../pages/translation.json'
+import data from '@/app/translation.json'
 
 type Props = {
   text: string

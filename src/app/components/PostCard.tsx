@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLink, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-import styles from '@/styles/PostCard.module.css'
+import { faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import React, { FC } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
   name: string
@@ -12,9 +13,9 @@ type Props = {
 
 const PostCard: FC<Props> = props => {
   return (
-    <a
+    <Link
       href={props.link}
-      className={styles.card}
+      className='p-4 bg-gradient-to-b from-slate-50 to-slate-100 block rounded-lg'
       target='_blank'
       rel='noopener noreferrer'
     >
@@ -28,19 +29,15 @@ const PostCard: FC<Props> = props => {
         </span>
       </h2>
       <p>{props.description}</p>
-      {/* <Image
-                src={props.imageSrc}
-                alt="Post image"
-                width={400}
-                height={300}
-            /> */}
-      <div className={styles.image}>
-        <img
+      <div className=''>
+        <Image
           src={props.imageSrc}
           alt='Post image'
+          width={1000}
+          height={750}
         />
       </div>
-    </a>
+    </Link>
   )
 }
 

@@ -8,7 +8,7 @@ type Props = {
 const Logo: FC<Props> = props => {
   return (
     <svg
-      className='svg'
+      className='invert'
       width={props.width}
       height={props.height}
       viewBox='0 0 512 512'
