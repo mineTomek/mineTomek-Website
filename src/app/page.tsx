@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <main className='flex flex-col gap-y-4 items-center p-6 min-h-[100vh]'>
-      <Navbar />
 
       <h2 className='text-center text-2xl'>
         <Text
