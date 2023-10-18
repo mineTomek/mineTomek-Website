@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import React, { FC } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
   name: string
@@ -35,9 +36,11 @@ const PostCard: FC<Props> = props => {
                 height={300}
             /> */}
       <div className=''>
-        <img
+        <Image
           src={props.imageSrc}
           alt='Post image'
+          width={1000}
+          height={750}
         />
       </div>
     </Link>
