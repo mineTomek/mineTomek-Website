@@ -29,12 +29,6 @@ const PostCard: FC<Props> = props => {
         </span>
       </h2>
       <p>{props.description}</p>
-      {/* <Image
-                src={props.imageSrc}
-                alt="Post image"
-                width={400}
-                height={300}
-            /> */}
       <div className=''>
         <Image
           src={props.imageSrc}
