@@ -16,7 +16,11 @@ export async function GET(request: NextRequest) {
       try {
         query = JSON.parse(q.toString())
       } catch (error) {
-        return createError(`Invalid query parameter: '${q}'`, 400, error as Error)
+        return createError(
+          `Invalid query parameter: '${q}'`,
+          400,
+          error as Error
+        )
       }
     }
 
