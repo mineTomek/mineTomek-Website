@@ -50,7 +50,7 @@ export default function Home() {
         </div>
       )}
 
-      {!data && <p> Data is not available!</p>}
+      {(!data && !isLoading && !error) && <p> Data is not available!</p>}
     </main>
   )
 }
