@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Head from 'next/head'
 import Navbar from './components/Navbar'
-
-const inter = Inter({ subsets: ['latin'] })
+import { getContentFont } from './fonts'
 
 export const metadata: Metadata = {
   title: 'mineTomek',
@@ -44,7 +42,7 @@ export default function RootLayout({
           content='#6dc53b'
         />
       </Head>
-      <body className={inter.className}>
+      <body className={getContentFont().className}>
         <Navbar />
         <div className='pt-16'>{children}</div>
       </body>
