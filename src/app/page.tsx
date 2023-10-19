@@ -5,7 +5,6 @@ import Text from './components/Text'
 import useSWR from 'swr'
 import Post from './types/Post'
 import PostCard from './components/PostCard'
-import Navbar from './components/Navbar'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
