@@ -32,6 +32,7 @@ const PostCard: FC<Props> = props => {
         alt='Post image'
         width={1000}
         height={750}
+        className='rounded-xl shadow-lg'
       />
     </Link>
   )
