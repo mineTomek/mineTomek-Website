@@ -8,5 +8,5 @@ export function getTitleFont() {
 }
 
 export function getContentFont() {
-    return content
+  return content
 }

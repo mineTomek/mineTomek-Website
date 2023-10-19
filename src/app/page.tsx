@@ -21,7 +21,6 @@ export default function Home() {
 
   return (
     <main className='flex flex-col gap-y-4 items-center p-6 min-h-[100vh]'>
-
       <h2 className='text-center text-2xl'>
         <Text
           text='newest_posts'
@@ -49,7 +48,7 @@ export default function Home() {
         </div>
       )}
 
-      {(!data && !isLoading && !error) && <p> Data is not available!</p>}
+      {!data && !isLoading && !error && <p> Data is not available!</p>}
     </main>
   )
 }
