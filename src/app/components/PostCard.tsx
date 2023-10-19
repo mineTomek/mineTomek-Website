@@ -15,7 +15,7 @@ const PostCard: FC<Props> = props => {
   return (
     <Link
       href={props.link}
-      className='p-4 bg-gradient-to-b from-slate-50 to-slate-100 block rounded-xl'
+      className='p-4 bg-gradient-to-b from-slate-50 to-slate-100 rounded-xl flex flex-col'
       target='_blank'
       rel='noopener noreferrer'
     >
