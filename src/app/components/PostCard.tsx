@@ -24,6 +24,7 @@ const PostCard: FC<Props> = props => {
         <FontAwesomeIcon
           icon={faQuoteRight}
           style={{ color: '#ccc' }}
+          className='w-12'
         />
       </div>
       <p>{props.description}</p>
