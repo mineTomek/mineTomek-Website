@@ -20,23 +20,19 @@ const PostCard: FC<Props> = props => {
       rel='noopener noreferrer'
     >
       <h2>
-        {props.name}{' '}
-        <span>
-          <FontAwesomeIcon
-            icon={faQuoteRight}
-            style={{ color: '#ccc' }}
-          />
-        </span>
+        {props.name}
+        <FontAwesomeIcon
+          icon={faQuoteRight}
+          style={{ color: '#ccc' }}
+        />
       </h2>
       <p>{props.description}</p>
-      <div className=''>
-        <Image
-          src={props.imageSrc}
-          alt='Post image'
-          width={1000}
-          height={750}
-        />
-      </div>
+      <Image
+        src={props.imageSrc}
+        alt='Post image'
+        width={1000}
+        height={750}
+      />
     </Link>
   )
 }
