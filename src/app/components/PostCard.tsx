@@ -19,13 +19,13 @@ const PostCard: FC<Props> = props => {
       target='_blank'
       rel='noopener noreferrer'
     >
-      <h2>
+      <div className='flex justify-between'>
         {props.name}
         <FontAwesomeIcon
           icon={faQuoteRight}
           style={{ color: '#ccc' }}
         />
-      </h2>
+      </div>
       <p>{props.description}</p>
       <Image
         src={props.imageSrc}
