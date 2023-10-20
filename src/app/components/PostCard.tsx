@@ -19,7 +19,7 @@ const PostCard: FC<Props> = props => {
       target='_blank'
       rel='noopener noreferrer'
     >
-      <div className='flex justify-between'>
+      <div className='flex justify-between text-lg tracking-wide'>
         {props.name}
         <FontAwesomeIcon
           icon={faQuoteRight}
