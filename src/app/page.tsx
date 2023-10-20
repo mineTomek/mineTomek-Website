@@ -45,9 +45,15 @@ export default function Home() {
       )}
 
       {categories && !isLoadingCategories && !categoriesError && (
-        <div className='flex flex-row gap-x-3'>
-          {categories!.map((category, i) => (
-            <span key={category._id.toString()} className='bg-slate-100 p-1 px-3 rounded-md'>{category.icon} {category.name}</span>
+        <div className='flex overflow-x-auto'>
+          {categories!.map(category => (
+            <div
+              key={category._id.toString()}
+              className='bg-slate-100 rounded-md m-2 p-2 px-3 text-center flex gap-2'
+            >
+              <span>{category.icon}</span>
+              <span>{category.name}</span>
+            </div>
           ))}
         </div>
       )}
