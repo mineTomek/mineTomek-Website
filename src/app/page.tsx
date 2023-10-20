@@ -38,7 +38,7 @@ export default function Home() {
 
       {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
-          {data!.map((post, i) => (
+          {posts!.map((post, i) => (
             <PostCard
               key={post._id.toString()}
               name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
