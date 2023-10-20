@@ -31,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='flex flex-col gap-y-4 p-6 min-h-[100vh]'>
+    <main className='flex min-h-[100vh] flex-col gap-y-4 p-6'>
       <h2 className='text-center text-2xl'>
         <Text
           text='newest_posts'
@@ -49,7 +49,7 @@ export default function Home() {
           {categories!.map(category => (
             <div
               key={category._id.toString()}
-              className='bg-slate-100 rounded-md m-2 p-2 px-3 text-center flex gap-2'
+              className='m-2 flex gap-2 rounded-md bg-slate-100 p-2 px-3 text-center'
             >
               <span>{category.icon}</span>
               <span>{category.name}</span>
@@ -64,7 +64,6 @@ export default function Home() {
 
       {isLoadingPosts && <p>Loading posts...</p>}
       {postsError && <p>Post loading error: {JSON.stringify(postsError)}</p>}
-
 
       {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
