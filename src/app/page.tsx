@@ -11,7 +11,11 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 export default function Home() {
   const [userLanguage, setUserLanguage] = useState('en-US')
 
-  const { data, isLoading, error } = useSWR<Post[]>('/api/posts', fetcher)
+  const {
+    data: posts,
+    isLoading: isLoadingPosts,
+    error: postsError,
+  } = useSWR<Post[]>('/api/posts', fetcher)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,11 +32,11 @@ export default function Home() {
         />
       </h2>
 
-      {isLoading && <p>Loading...</p>}
+      {isLoadingPosts && <p>Loading posts...</p>}
+      {postsError && <p>Post loading error: {JSON.stringify(postsError)}</p>}
 
-      {error && <p>Error: {JSON.stringify(error)}</p>}
 
-      {data && !isLoading && !error && (
+      {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
           {data!.map((post, i) => (
             <PostCard
@@ -48,7 +52,9 @@ export default function Home() {
         </div>
       )}
 
-      {!data && !isLoading && !error && <p> Data is not available!</p>}
+      {!posts && !isLoadingPosts && !postsError && (
+        <p>Posts data is not available!</p>
+      )}
     </main>
   )
 }
