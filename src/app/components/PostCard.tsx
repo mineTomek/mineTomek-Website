@@ -27,7 +27,7 @@ const PostCard: FC<Props> = props => {
           className='w-12'
         />
       </div>
-      <p>{props.description}</p>
+      <p>{props.description.split('.')[0] + (props.description.split('.').length > 2 ? '...' : '.')}</p>
       <Image
         src={props.imageSrc}
         alt='Post image'
