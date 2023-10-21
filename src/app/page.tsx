@@ -6,11 +6,15 @@ import useSWR from 'swr'
 import Post from './types/Post'
 import PostCard from './components/PostCard'
 import Category from './types/Category'
+import { ObjectId } from 'mongodb'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
   const [userLanguage, setUserLanguage] = useState('en-US')
+  const [selectedCategory, setSelectedCategory] = useState<
+    ObjectId | undefined
+  >(undefined)
 
   const {
     data: posts,
@@ -49,7 +53,16 @@ export default function Home() {
           {categories!.map(category => (
             <div
               key={category._id.toString()}
-              className='m-2 flex snap-start gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset]'
+              className={`m-2 flex cursor-pointer snap-start gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
+                selectedCategory === category._id && 'bg-slate-100'
+              }`}
+              onClick={() => {
+                if (selectedCategory === category._id) {
+                  setSelectedCategory(undefined)
+                } else {
+                  setSelectedCategory(category._id)
+                }
+              }}
             >
               <span>{category.icon}</span>
               <span>{category.name}</span>
