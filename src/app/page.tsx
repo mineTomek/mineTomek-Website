@@ -45,11 +45,11 @@ export default function Home() {
       )}
 
       {categories && !isLoadingCategories && !categoriesError && (
-        <div className='no-scrollbar flex overflow-x-auto'>
+        <div className='no-scrollbar flex snap-x scroll-mx-2 overflow-x-auto'>
           {categories!.map(category => (
             <div
               key={category._id.toString()}
-              className='m-2 flex gap-2 rounded-md bg-slate-100 p-2 px-3 text-center'
+              className='m-2 flex snap-start gap-2 rounded-md bg-slate-100 p-2 px-3 text-center'
             >
               <span>{category.icon}</span>
               <span>{category.name}</span>
