@@ -69,10 +69,10 @@ export default function Home() {
               }}
             >
               <span>{category.icon}</span>
-              <span>{category.name}</span>
               <span className='text-slate-400'>
                 {Math.floor(Math.random() * 9 + 1)}
               </span>
+              <span className='tracking-wider'>{category.name}</span>
             </div>
           ))}
         </div>
