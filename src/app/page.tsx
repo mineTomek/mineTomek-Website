@@ -49,7 +49,7 @@ export default function Home() {
           {categories!.map(category => (
             <div
               key={category._id.toString()}
-              className='m-2 flex snap-start gap-2 rounded-md bg-slate-100 p-2 px-3 text-center'
+              className='m-2 flex snap-start gap-2 rounded-md border bg-slate-100 p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset]'
             >
               <span>{category.icon}</span>
               <span>{category.name}</span>
