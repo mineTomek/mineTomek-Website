@@ -45,7 +45,7 @@ export default function Home() {
       )}
 
       {categories && !isLoadingCategories && !categoriesError && (
-        <div className='flex overflow-x-auto'>
+        <div className='no-scrollbar flex overflow-x-auto'>
           {categories!.map(category => (
             <div
               key={category._id.toString()}
