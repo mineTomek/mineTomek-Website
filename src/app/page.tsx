@@ -16,11 +16,15 @@ export default function Home() {
     ObjectId | undefined
   >(undefined)
 
+  let postsUrl = '/api/posts'
+  if (selectedCategory) {
+    postsUrl += `/category/${selectedCategory.toString()}`
+  }
   const {
     data: posts,
     isLoading: isLoadingPosts,
     error: postsError,
-  } = useSWR<Post[]>('/api/posts', fetcher)
+  } = useSWR<Post[]>(postsUrl, fetcher)
 
   const {
     data: categories,
