@@ -16,15 +16,11 @@ export default function Home() {
     ObjectId | undefined
   >(undefined)
 
-  let postsUrl = '/api/posts'
-  if (selectedCategory) {
-    postsUrl += `/category/${selectedCategory.toString()}`
-  }
   const {
     data: posts,
     isLoading: isLoadingPosts,
     error: postsError,
-  } = useSWR<Post[]>(postsUrl, fetcher)
+  } = useSWR<Post[]>('/api/posts', fetcher)
 
   const {
     data: categories,
@@ -84,7 +80,12 @@ export default function Home() {
 
       {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
-          {posts.map((post, i) => (
+          {posts.filter(post => {
+            if (selectedCategory) {
+              return post.categoryId === selectedCategory
+            }
+            return true
+          }).map((post, i) => (
             <PostCard
               key={post._id.toString()}
               name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
