@@ -54,7 +54,7 @@ export default function Home() {
 
       {categories && !isLoadingCategories && !categoriesError && (
         <div className='no-scrollbar flex snap-x scroll-mx-2 overflow-x-auto'>
-          {categories!.map(category => (
+          {categories.map(category => (
             <div
               key={category._id.toString()}
               className={`m-2 flex cursor-pointer snap-start gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
@@ -84,7 +84,7 @@ export default function Home() {
 
       {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
-          {posts!.map((post, i) => (
+          {posts.map((post, i) => (
             <PostCard
               key={post._id.toString()}
               name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
