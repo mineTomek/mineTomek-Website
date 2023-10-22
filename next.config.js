@@ -7,11 +7,7 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
-        hostname: 'cdn.pixabay.com',
-        pathname: '/photo/**',
-      },
-      {
-        hostname: 'images.unsplash.com',
+        hostname: '**',
         pathname: '**',
       },
     ],
