@@ -80,22 +80,24 @@ export default function Home() {
 
       {posts && !isLoadingPosts && !postsError && (
         <div className='flex flex-col gap-y-5'>
-          {posts.filter(post => {
-            if (selectedCategory) {
-              return post.categoryId === selectedCategory
-            }
-            return true
-          }).map((post, i) => (
-            <PostCard
-              key={post._id.toString()}
-              name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
-              description={
-                userLanguage === 'pl_PL' ? post.content.pl : post.content.en
+          {posts
+            .filter(post => {
+              if (selectedCategory) {
+                return post.categoryId === selectedCategory
               }
-              link={''}
-              imageSrc={post.imageUrl}
-            />
-          ))}
+              return true
+            })
+            .map((post, i) => (
+              <PostCard
+                key={post._id.toString()}
+                name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
+                description={
+                  userLanguage === 'pl_PL' ? post.content.pl : post.content.en
+                }
+                link={''}
+                imageSrc={post.imageUrl}
+              />
+            ))}
         </div>
       )}
 
