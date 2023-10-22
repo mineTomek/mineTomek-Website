@@ -7,6 +7,8 @@ import Post from './types/Post'
 import PostCard from './components/PostCard'
 import Category from './types/Category'
 import { ObjectId } from 'mongodb'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -66,6 +68,7 @@ export default function Home() {
             >
               <span>{category.icon}</span>
               <span className='tracking-wider'>{category.name}</span>
+              {selectedCategory === category._id && <FontAwesomeIcon icon={faCheck} className='my-auto' />}
             </div>
           ))}
         </div>
