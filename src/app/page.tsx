@@ -82,7 +82,7 @@ export default function Home() {
           {categories.map(category => (
             <div
               key={category._id.toString()}
-              className={`my-2 ml-3 mr-3 flex cursor-pointer snap-start scroll-ml-3 gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
+              className={`my-2 mx-6 flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
                 selectedCategory === category._id && 'bg-slate-100'
               }`}
               onClick={() => {
