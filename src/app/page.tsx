@@ -95,7 +95,12 @@ export default function Home() {
             >
               <span>{category.icon}</span>
               <span className='tracking-wider'>{category.name}</span>
-              {selectedCategory === category._id && <FontAwesomeIcon icon={faCheck} className='my-auto' />}
+              {selectedCategory === category._id && (
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className='my-auto'
+                />
+              )}
             </div>
           ))}
         </div>
