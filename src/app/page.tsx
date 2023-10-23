@@ -45,9 +45,36 @@ export default function Home() {
         />
       </h2>
 
-      {isLoadingCategories && <p>Loading categories...</p>}
+      {(isLoadingPosts || isLoadingCategories) && (
+        <div className='pt-16'>
+          <div className='flex w-screen justify-center gap-4 p-2'>
+            <span>Loading...</span>
+          </div>
+        </div>
+      )}
+
+      {!posts && !isLoadingPosts && !postsError && (
+        <div className='p-4'>
+          <p>Couldn&apos;t retrieve posts data, but!</p>
+        </div>
+      )}
+
+      {!categories && !isLoadingCategories && !categoriesError && (
+        <div className='p-4'>
+          <p>Couldn&apos;t retrieve categories data, but!</p>
+        </div>
+      )}
+
       {categoriesError && (
-        <p>Categories loading error: {JSON.stringify(categoriesError)}</p>
+        <div className='p-4'>
+          <p>Categories loading error: {JSON.stringify(categoriesError)}</p>
+        </div>
+      )}
+
+      {postsError && (
+        <div className='p-4'>
+          <p>Post loading error: {JSON.stringify(postsError)}</p>
+        </div>
       )}
 
       {categories && !isLoadingCategories && !categoriesError && (
@@ -74,13 +101,6 @@ export default function Home() {
         </div>
       )}
 
-      {!categories && !isLoadingCategories && !categoriesError && (
-        <p>Posts data is not available!</p>
-      )}
-
-      {isLoadingPosts && <p>Loading posts...</p>}
-      {postsError && <p>Post loading error: {JSON.stringify(postsError)}</p>}
-
       {posts && !isLoadingPosts && !postsError && (
         <div className='mx-6 flex flex-col gap-y-5'>
           {posts
@@ -103,10 +123,6 @@ export default function Home() {
               />
             ))}
         </div>
-      )}
-
-      {!posts && !isLoadingPosts && !postsError && (
-        <p>Posts data is not available!</p>
       )}
     </main>
   )
