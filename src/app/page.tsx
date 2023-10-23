@@ -37,7 +37,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='flex min-h-[100vh] flex-col gap-y-4 p-6'>
+    <main className='my-6 flex min-h-[100vh] flex-col gap-y-4'>
       <h2 className='text-center text-2xl'>
         <Text
           text='newest_posts'
@@ -82,7 +82,7 @@ export default function Home() {
       {postsError && <p>Post loading error: {JSON.stringify(postsError)}</p>}
 
       {posts && !isLoadingPosts && !postsError && (
-        <div className='flex flex-col gap-y-5'>
+        <div className='mx-6 flex flex-col gap-y-5'>
           {posts
             .filter(post => {
               if (selectedCategory) {
