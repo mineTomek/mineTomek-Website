@@ -51,11 +51,11 @@ export default function Home() {
       )}
 
       {categories && !isLoadingCategories && !categoriesError && (
-        <div className='no-scrollbar flex snap-x scroll-mx-2 overflow-x-auto'>
+        <div className='no-scrollbar flex snap-x overflow-x-auto'>
           {categories.map(category => (
             <div
               key={category._id.toString()}
-              className={`m-2 flex cursor-pointer snap-start gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
+              className={`my-2 ml-3 mr-3 flex cursor-pointer snap-start scroll-ml-3 gap-2 rounded-md border p-2 px-3 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] ${
                 selectedCategory === category._id && 'bg-slate-100'
               }`}
               onClick={() => {
