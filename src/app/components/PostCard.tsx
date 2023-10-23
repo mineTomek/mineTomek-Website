@@ -2,12 +2,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import Image from 'next/image'
+import Category from '../types/Category'
 
 export default function PostCard(props: {
   name: string
   link: string
   description: string
   imageSrc: string
+  category?: Category
 }) {
   return (
     <Link
@@ -18,11 +20,16 @@ export default function PostCard(props: {
     >
       <div className='flex justify-between text-lg tracking-wide'>
         {props.name}
-        <FontAwesomeIcon
-          icon={faQuoteRight}
-          style={{ color: '#ccc' }}
-          className='h-auto w-6'
-        />
+        <div className='flex gap-4'>
+          <span className='my-auto text-sm text-slate-600'>
+            {props.category && props.category.name}
+          </span>
+          <FontAwesomeIcon
+            icon={faQuoteRight}
+            style={{ color: '#ccc' }}
+            className='h-auto w-6'
+          />
+        </div>
       </div>
       <p>
         {props.description.split('.')[0] +

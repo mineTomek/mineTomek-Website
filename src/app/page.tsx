@@ -99,6 +99,7 @@ export default function Home() {
                 }
                 link={''}
                 imageSrc={post.imageUrl}
+                category={categories?.find(c => c._id === post.categoryId)}
               />
             ))}
         </div>
