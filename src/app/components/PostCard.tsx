@@ -27,7 +27,7 @@ export default function PostCard(props: {
           <FontAwesomeIcon
             icon={faQuoteRight}
             style={{ color: '#ccc' }}
-            className='h-auto w-6'
+            className='h-auto w-6 hidden sm:block'
           />
         </div>
       </div>
