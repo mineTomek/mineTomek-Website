@@ -1,17 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons'
-import React, { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-type Props = {
+export default function PostCard(props: {
   name: string
   link: string
   description: string
   imageSrc: string
-}
-
-const PostCard: FC<Props> = props => {
+}) {
   return (
     <Link
       href={props.link}
@@ -41,5 +38,3 @@ const PostCard: FC<Props> = props => {
     </Link>
   )
 }
-
-export default PostCard

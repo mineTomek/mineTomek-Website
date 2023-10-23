@@ -1,10 +1,4 @@
-import { FC } from 'react'
 import data from '@/app/translation.json'
-
-type Props = {
-  text: string
-  lang: string
-}
 
 interface Translations {
   [key: string]: {
@@ -14,7 +8,7 @@ interface Translations {
 
 const translations: Translations = data
 
-const Text: FC<Props> = props => {
+export default function Text(props: { text: string; lang: string }) {
   let userLanguage = props.lang
 
   if (userLanguage.includes('en')) {
@@ -35,5 +29,3 @@ const Text: FC<Props> = props => {
     </span>
   )
 }
-
-export default Text

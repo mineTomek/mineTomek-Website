@@ -1,11 +1,4 @@
-import { FC } from 'react'
-
-type Props = {
-  width: number
-  height: number
-}
-
-const Logo: FC<Props> = props => {
+export default function Logo(props: { width: number; height: number }) {
   return (
     <svg
       className=''
@@ -32,5 +25,3 @@ const Logo: FC<Props> = props => {
     </svg>
   )
 }
-
-export default Logo
