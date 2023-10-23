@@ -15,7 +15,7 @@ const PostCard: FC<Props> = props => {
   return (
     <Link
       href={props.link}
-      className='p-3 bg-gradient-to-b from-slate-50 to-slate-100 rounded-xl flex flex-col gap-2 border [box-shadow:1px_-4px_3px_0_#00000012_inset]'
+      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-slate-50 to-slate-100 p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset]'
       target='_blank'
       rel='noopener noreferrer'
     >
@@ -24,7 +24,7 @@ const PostCard: FC<Props> = props => {
         <FontAwesomeIcon
           icon={faQuoteRight}
           style={{ color: '#ccc' }}
-          className='w-6 h-auto'
+          className='h-auto w-6'
         />
       </div>
       <p>{props.description.split('.')[0] + (props.description.split('.').length > 2 ? '...' : '.')}</p>
@@ -33,7 +33,7 @@ const PostCard: FC<Props> = props => {
         alt='Post image'
         width={1920}
         height={1080}
-        className='rounded-xl shadow-lg aspect-video object-cover'
+        className='aspect-video rounded-xl object-cover shadow-lg'
       />
     </Link>
   )
