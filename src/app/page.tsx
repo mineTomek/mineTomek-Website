@@ -10,6 +10,7 @@ import { ObjectId } from 'mongodb'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
+import Logo from './components/Logo'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -44,6 +45,7 @@ export default function Home() {
           getTitleFont().className
         } text-center`}
       >
+        <Logo width={200} height={200} className='mx-auto border-2 p-6 rounded-2xl shadow bg-gradient-to-br from-white to-primary-100'/>
         <h1 className='text-text-900 text-[3rem]'>mineTomek</h1>
         <h3 className='text-md'>The official mineTomek{"'"}s website</h3>
         <p className='pt-8'>
