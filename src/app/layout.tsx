@@ -6,7 +6,6 @@ import { getContentFont } from './fonts'
 export const metadata: Metadata = {
   title: 'mineTomek',
   description: "mineTomek's official website",
-  icons: { icon: '/favicon.png' },
   themeColor: '#4e9c76',
   viewport: 'width=device-width, initial-scale=1',
 }
