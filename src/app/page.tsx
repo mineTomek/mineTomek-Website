@@ -9,6 +9,7 @@ import Category from './types/Category'
 import { ObjectId } from 'mongodb'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { getTitleFont } from './fonts'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -37,7 +38,27 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='my-6 flex min-h-[100vh] flex-col gap-y-4'>
+    <main className='flex min-h-[100vh] flex-col gap-y-4'>
+      <div
+        className={`text-bold min-h-[calc(100vh-4rem)] space-y-4 bg-gradient-to-b from-slate-100 to-transparent px-6 py-16 ${
+          getTitleFont().className
+        } text-center`}
+      >
+        <h1 className='text-text-900 text-[3rem]'>mineTomek</h1>
+        <h3 className='text-md'>The official mineTomek{"'"}s website</h3>
+        <p className='pt-8'>
+          Here you can find all my work, and the newest updates
+        </p>
+        <div className='mx-auto flex flex-col gap-4 items-center pt-16'>
+          <button className='bg-primary-100 cursor-pointer rounded-md border p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset] w-fit'>
+            Check the blog
+          </button>
+          <button className='bg-primary-100 cursor-pointer rounded-md border p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset] w-fit'>
+            Go to the project timeline
+          </button>
+        </div>
+      </div>
+
       <h2 className='text-center text-2xl'>
         <Text
           text='newest_posts'
