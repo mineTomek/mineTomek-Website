@@ -26,7 +26,6 @@ export default function RootLayout({
           name='viewport'
           content='width=device-width, initial-scale=1'
         />
-        {/* <link rel="icon" type="image/svg+xml" href={} /> */}
         <link
           rel='icon'
           type='image/svg+xml'
@@ -39,10 +38,10 @@ export default function RootLayout({
         />
         <meta
           name='theme-color'
-          content='#6dc53b'
+          content='#4E9C76'
         />
       </Head>
-      <body className={getContentFont().className}>
+      <body className={`bg-background ${getContentFont().className} text-text-800`}>
         <Navbar />
         <div className='pt-16'>{children}</div>
       </body>

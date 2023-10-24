@@ -14,7 +14,7 @@ export default function PostCard(props: {
   return (
     <Link
       href={props.link}
-      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-slate-50 to-slate-100 p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset]'
+      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-background-50 to-background-100 p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset]'
       target='_blank'
       rel='noopener noreferrer'
     >
