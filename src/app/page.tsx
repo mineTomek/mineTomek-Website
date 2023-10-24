@@ -55,13 +55,13 @@ export default function Home() {
 
       {!posts && !isLoadingPosts && !postsError && (
         <div className='p-4'>
-          <p>Couldn&apos;t retrieve posts data, but no error occurred!</p>
+          <p>Couldn{"'"}t retrieve posts data, but no error occurred!</p>
         </div>
       )}
 
       {!categories && !isLoadingCategories && !categoriesError && (
         <div className='p-4'>
-          <p>Couldn&apos;t retrieve categories data, but no error occurred!</p>
+          <p>Couldn{"'"}t retrieve categories data, but no error occurred!</p>
         </div>
       )}
 
