@@ -10,10 +10,7 @@ export default function Navbar() {
         getTitleFont().className
       }`}
     >
-      <Logo
-        width={32}
-        height={32}
-      />
+      <Logo />
       <h1 className='text-xl'>mineTomek</h1>
       <FontAwesomeIcon
         icon={faBars}

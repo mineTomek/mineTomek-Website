@@ -1,12 +1,12 @@
 import Image from 'next/image'
 
-export default function Logo(props: { width: number; height: number }) {
+export default function Logo(props: { width?: number; height?: number }) {
   return (
     <Image
       src={'/favicon.svg'}
       alt='logo'
-      width={props.width}
-      height={props.height}
+      width={props.width ?? 48}
+      height={props.height ?? 48}
     />
   )
 }
