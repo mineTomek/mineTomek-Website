@@ -14,8 +14,7 @@ export default function Navbar() {
       <h1 className='text-xl'>mineTomek</h1>
       <FontAwesomeIcon
         icon={faBars}
-        width={30}
-        height={30}
+        className='h-8 w-8'
       />
     </div>
   )
