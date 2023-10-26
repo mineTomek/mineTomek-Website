@@ -10,7 +10,7 @@ export async function GET(
   try {
     const db = await getDb()
 
-    const collection = db.collection('posts')
+    const collection = db.collection('categories')
 
     const posts = await collection
       .find({ _id: new ObjectId(params.id) })

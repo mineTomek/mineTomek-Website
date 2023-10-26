@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
   try {
     const db = await getDb()
 
-    const collection = db.collection('posts')
+    const collection = db.collection('categories')
 
     let query = {}
 

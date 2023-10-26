@@ -5,12 +5,12 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-    target-branch: "develop"
-  - package-ecosystem: "github-actions"
-    directory: "/"
+      interval: 'weekly'
+    target-branch: 'develop'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "daily"
+      interval: 'daily'
