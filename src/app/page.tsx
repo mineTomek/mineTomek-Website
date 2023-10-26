@@ -8,7 +8,7 @@ import PostCard from './components/PostCard'
 import Category from './types/Category'
 import { ObjectId } from 'mongodb'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
 import Logo from './components/Logo'
 
@@ -59,6 +59,11 @@ export default function Home() {
             Go to the project timeline
           </button>
         </div>
+
+        <FontAwesomeIcon
+          icon={faAnglesDown}
+          className='h-10 w-10 pt-8 motion-safe:animate-pulse'
+        />
       </div>
 
       <h2 className='text-center text-2xl'>
