@@ -13,7 +13,7 @@ export async function GET(
     const collection = db.collection('posts')
 
     const posts = await collection
-      .find({ 'categoryId': new ObjectId(params.id) })
+      .find({ categoryId: new ObjectId(params.id) })
       .toArray()
 
     return Response.json(posts)

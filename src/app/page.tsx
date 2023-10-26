@@ -48,18 +48,18 @@ export default function Home() {
         <Logo
           width={200}
           height={200}
-          className='to-primary-100 mx-auto rounded-2xl border-2 bg-gradient-to-br from-white p-6 shadow'
+          className='mx-auto rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow'
         />
-        <h1 className='text-text-900 text-[3rem]'>mineTomek</h1>
+        <h1 className='text-[3rem] text-text-900'>mineTomek</h1>
         <h3 className='text-md'>The official mineTomek{"'"}s website</h3>
         <p className='pt-8'>
           Here you can find all my work, and the newest updates
         </p>
         <div className='mx-auto flex flex-col items-center gap-4 pt-16'>
-          <button className='bg-primary-100 w-fit cursor-pointer rounded-md border p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
+          <button className='w-fit cursor-pointer rounded-md border bg-primary-100 p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
             Check the blog
           </button>
-          <button className='bg-primary-100 w-fit cursor-pointer rounded-md border p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
+          <button className='w-fit cursor-pointer rounded-md border bg-primary-100 p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
             Go to the project timeline
           </button>
         </div>
