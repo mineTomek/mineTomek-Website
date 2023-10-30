@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
 import Logo from './components/Logo'
+import Button from './components/Button'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -56,12 +57,8 @@ export default function Home() {
           Here you can find all my work, and the newest updates
         </p>
         <div className='mx-auto flex flex-col items-center gap-4 pt-16'>
-          <button className='w-fit cursor-pointer rounded-md border bg-primary-100 p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
-            Check the blog
-          </button>
-          <button className='w-fit cursor-pointer rounded-md border bg-primary-100 p-2 [box-shadow:1px_-4px_3px_0_#00000012_inset]'>
-            Go to the project timeline
-          </button>
+          <Button text='Check the blog' />
+          <Button text='Go to the project timeline' />
         </div>
 
         <FontAwesomeIcon
