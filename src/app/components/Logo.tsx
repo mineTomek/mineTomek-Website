@@ -11,7 +11,7 @@ export default function Logo(props: {
       alt='logo'
       width={props.width ?? 48}
       height={props.height ?? 48}
-      className={props.className}
+      className={`${props.className} dark:invert`}
     />
   )
 }
