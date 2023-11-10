@@ -115,8 +115,9 @@ export default function Home() {
           {categories.map(category => (
             <div
               key={category._id.toString()}
-              className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 ${
-                selectedCategory === category._id && 'bg-slate-100'
+              className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 dark:border-zinc-800 ${
+                selectedCategory === category._id &&
+                'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
               }`}
               onClick={() => {
                 if (selectedCategory === category._id) {
