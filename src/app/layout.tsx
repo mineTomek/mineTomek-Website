@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './components/Navbar'
 import { getContentFont } from './fonts'
+import ThemeSwitch from './components/ThemeSwitch'
 
 export const metadata: Metadata = {
   title: 'mineTomek',
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className='dark'
+      className='dark overflow-x-hidden'
     >
       <body
         className={`bg-zinc-100 dark:bg-zinc-900 ${
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <Navbar />
         <div className='mt-16 bg-white dark:bg-zinc-900'>{children}</div>
+        <ThemeSwitch />
       </body>
     </html>
   )
