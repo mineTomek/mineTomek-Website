@@ -42,16 +42,20 @@ export default function Home() {
   return (
     <main className='flex min-h-[100vh] flex-col gap-y-4'>
       <div
-        className={`text-bold min-h-[calc(100vh-4rem)] space-y-4 bg-gradient-to-b from-slate-100 to-transparent px-6 py-16 ${
+        className={`text-bold min-h-[calc(100vh-4rem)] space-y-4 bg-gradient-to-b from-zinc-100 to-transparent px-6 py-16 dark:from-zinc-800 ${
           getTitleFont().className
         } text-center`}
       >
-        <Logo
-          width={200}
-          height={200}
-          className='mx-auto rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow'
-        />
-        <h1 className='text-[3rem] text-text-900'>mineTomek</h1>
+        <div className='border-pulse mx-auto w-52 rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow dark:from-zinc-700 dark:to-zinc-900'>
+          <Logo
+            width={200}
+            height={200}
+            className=''
+          />
+        </div>
+        <h1 className='text-[3rem] text-text-900 dark:text-text-100'>
+          mineTomek
+        </h1>
         <h3 className='text-md'>The official mineTomek{"'"}s website</h3>
         <p className='pt-8'>
           Here you can find all my work, and the newest updates
