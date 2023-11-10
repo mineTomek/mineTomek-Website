@@ -40,7 +40,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='flex min-h-[100vh] flex-col gap-y-4'>
+    <main className='mb-6 flex min-h-[100vh] flex-col gap-y-4'>
       <div
         className={`text-bold min-h-[calc(100vh-4rem)] space-y-4 bg-gradient-to-b from-zinc-100 to-transparent px-6 py-16 dark:from-zinc-800 ${
           getTitleFont().className
