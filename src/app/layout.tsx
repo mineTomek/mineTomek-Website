@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './components/Navbar'
 import { getContentFont } from './fonts'
-import ThemeSwitch from './components/ThemeSwitch'
 
 export const metadata: Metadata = {
   title: 'mineTomek',
