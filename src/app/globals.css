@@ -5,3 +5,17 @@
 .no-scrollbar::-webkit-scrollbar {
   @apply hidden;
 }
+
+.border-pulse {
+  @apply [animation:_border-pulse_3s_cubic-bezier(0.4,_0,_0.6,_1)_infinite];
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
+    @apply border-zinc-700;
+  }
+  50% {
+    @apply border-zinc-900;
+  }
+}

@@ -14,14 +14,14 @@ export default function PostCard(props: {
   return (
     <Link
       href={props.link}
-      className='from-background-50 to-background-100 flex flex-col gap-2 rounded-xl border bg-gradient-to-b p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset]'
+      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-zinc-50 to-zinc-100 p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset] dark:border-zinc-800 dark:from-zinc-800 dark:to-zinc-800'
       target='_blank'
       rel='noopener noreferrer'
     >
       <div className='flex justify-between text-lg tracking-wide'>
         {props.name}
         <div className='flex gap-4'>
-          <span className='my-auto text-sm text-slate-600'>
+          <span className='my-auto text-sm text-zinc-600 dark:text-zinc-300'>
             {props.category && props.category.name}
           </span>
           <FontAwesomeIcon

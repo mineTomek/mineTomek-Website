@@ -16,12 +16,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      className='overflow-x-hidden'
+    >
       <body
-        className={`bg-background ${getContentFont().className} text-text-800`}
+        className={`bg-zinc-100 dark:bg-zinc-900 ${
+          getContentFont().className
+        } text-text-800 dark:text-text-50`}
       >
         <Navbar />
-        <div className='pt-16'>{children}</div>
+        <div className='mt-16 bg-white dark:bg-zinc-900'>{children}</div>
       </body>
     </html>
   )
