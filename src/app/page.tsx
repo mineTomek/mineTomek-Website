@@ -46,7 +46,7 @@ export default function Home() {
           getTitleFont().className
         } text-center`}
       >
-        <div className='border-pulse mx-auto w-52 rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow dark:from-zinc-700 dark:to-zinc-900'>
+        <div className='border-pulse mx-auto h-52 w-52 rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow dark:from-zinc-700 dark:to-zinc-900'>
           <Logo
             width={200}
             height={200}
