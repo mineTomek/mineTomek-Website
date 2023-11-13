@@ -10,6 +10,10 @@
   @apply [animation:_border-pulse_3s_cubic-bezier(0.4,_0,_0.6,_1)_infinite];
 }
 
+.timeline-item-description strong {
+  @apply text-primary-500;
+}
+
 @keyframes border-pulse {
   0%,
   100% {
