@@ -141,7 +141,7 @@ export default function Home() {
       )}
 
       {posts && !isLoadingPosts && !postsError && (
-        <div className='mx-6 flex flex-col gap-y-5'>
+        <div className='mx-6 grid md:grid-cols-3 sm:grid-cols-2 gap-5'>
           {posts
             .filter(post => {
               if (selectedCategory) {
