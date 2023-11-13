@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <main className='mb-6 flex min-h-[100vh] flex-col gap-y-4'>
       <div
-        className={`text-bold min-h-[calc(100vh-4rem)] justify-between items-center flex flex-col bg-gradient-to-b from-zinc-100 to-transparent px-6 py-16 dark:from-zinc-800 ${
+        className={`text-bold flex min-h-[calc(100vh-4rem)] flex-col items-center justify-between bg-gradient-to-b from-zinc-100 to-transparent px-6 py-16 dark:from-zinc-800 ${
           getTitleFont().className
         } text-center`}
       >
@@ -141,7 +141,7 @@ export default function Home() {
       )}
 
       {posts && !isLoadingPosts && !postsError && (
-        <div className='mx-6 grid md:grid-cols-3 sm:grid-cols-2 gap-5'>
+        <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
           {posts
             .filter(post => {
               if (selectedCategory) {
