@@ -62,7 +62,7 @@ export default function Home() {
             Here you can find all my work, and the newest updates
           </p>
         </div>
-        <div className='md:col-start-2 mx-auto flex flex-col items-center gap-4 pt-16'>
+        <div className='md:col-start-2 mx-auto flex flex-col items-center gap-4 pt-16 md:pt-0'>
           <Button text='Check the blog' />
           <Button text='Go to the project timeline' />
         </div>
