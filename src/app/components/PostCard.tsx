@@ -14,7 +14,7 @@ export default function PostCard(props: {
   return (
     <Link
       href={props.link}
-      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-zinc-50 to-zinc-100 p-3 [box-shadow:1px_-4px_3px_0_#00000012_inset] dark:border-zinc-800 dark:from-zinc-800 dark:to-zinc-800'
+      className='flex flex-col gap-2 rounded-xl border bg-gradient-to-b from-zinc-50 to-zinc-100 p-3 transition-[transform,_box-shadow] [box-shadow:1px_-4px_3px_0_#00000012_inset] hover:-translate-y-1 hover:[box-shadow:1px_-1px_3px_0_#00000012_inset] dark:border-zinc-800 dark:from-zinc-800 dark:to-zinc-800'
       target='_blank'
       rel='noopener noreferrer'
     >
