@@ -11,7 +11,6 @@ export default function Navbar() {
       }`}
     >
       <Logo />
-      <h1 className='text-xl'>mineTomek</h1>
       <FontAwesomeIcon
         icon={faBars}
         className='h-8 w-8'
