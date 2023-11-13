@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang='en'
-      className='overflow-x-hidden'
+      className='no-scrollbar overflow-x-hidden'
     >
       <body
         className={`bg-zinc-100 dark:bg-zinc-900 ${
