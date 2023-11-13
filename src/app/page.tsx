@@ -64,7 +64,7 @@ export default function Home() {
         </div>
         <div className='md:col-start-2 mx-auto flex flex-col items-center gap-4 pt-16 md:pt-0'>
           <Button text='Check the blog' disabled />
-          <Button text='Go to the project timeline' disabled />
+          <Button text='Go to the project timeline' clickAction={router => router.push('/timeline')} />
         </div>
 
         <div className='md:col-span-2'>
