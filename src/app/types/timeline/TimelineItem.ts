@@ -6,6 +6,7 @@ export default interface TimelineItem {
   date: Date
   description: string
   imageSrc: string
+  dateAccuracy: number
   buttons: TimelineItemButton[]
 }
 
