@@ -16,7 +16,11 @@ export default function Item(props: { item: TimelineItem; index: number }) {
       <div className='flex justify-between text-xl'>
         <p className='bold'>{props.item.title}</p>
         <p className='text-zinc-500'>
-          {props.item.date.toString().split(/[-T]/g).slice(0, props.item.dateAccuracy).join('/')}
+          {props.item.date
+            .toString()
+            .split(/[-T]/g)
+            .slice(0, props.item.dateAccuracy)
+            .join('/')}
         </p>
       </div>
 
