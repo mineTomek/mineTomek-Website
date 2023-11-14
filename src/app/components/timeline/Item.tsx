@@ -37,7 +37,7 @@ export default function Item(props: { item: TimelineItem; index: number }) {
         alt={`${props.item.title} image`}
         width={1920}
         height={1080}
-        className='aspect-video w-full rounded-lg'
+        className='aspect-video w-full rounded-lg object-cover'
       />
     </div>
   )
