@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Button from '../Button'
 import Markdown from 'react-markdown'
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 
 export default function Item(props: { item: TimelineItem; index: number }) {
   return (
