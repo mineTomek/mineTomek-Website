@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const items = await collection.find(query).toArray()
+    const items = await collection.find(query).sort({ date: 1 }).toArray()
 
     return Response.json(items)
   } catch (error) {
