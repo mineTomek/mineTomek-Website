@@ -19,6 +19,7 @@ export default function TimelinePage() {
         <h1 className='text-[5vw]'>Welcome to my project timeline!</h1>
         <p className='text-[2.8vw]'>
           My projects are organized from the oldest to the newest.
+          <a href='#footnote'>*</a>
         </p>
       </div>
 
@@ -32,6 +33,13 @@ export default function TimelinePage() {
       {itemsError && (
         <p>Categories loading error: {JSON.stringify(itemsError)}</p>
       )}
+
+      <p
+        id='footnote'
+        className='mb-8 mt-16'
+      >
+        * The dates are approximated.
+      </p>
     </div>
   )
 }
