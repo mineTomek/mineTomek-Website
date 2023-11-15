@@ -18,6 +18,10 @@ html {
   @apply text-primary-500;
 }
 
+.timeline-item-description a {
+  @apply font-bold text-primary-400 underline;
+}
+
 @keyframes border-pulse {
   0%,
   100% {
