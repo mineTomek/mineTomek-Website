@@ -1,6 +1,6 @@
 # mineTomek's Website
 
-This is a [Next.js](https://nextjs.org/) based website for mineTomek (*made by mineTomek*).
+This is a [Next.js](https://nextjs.org/) based website for mineTomek (_made by mineTomek_).
 
 ## Where is this website?
 

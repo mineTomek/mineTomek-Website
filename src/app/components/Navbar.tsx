@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { getTitleFont } from '../fonts'
 import Logo from './Logo'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
 
 export default function Navbar() {
   return (
@@ -10,7 +11,9 @@ export default function Navbar() {
         getTitleFont().className
       }`}
     >
-      <Logo />
+      <Link href='/'>
+        <Logo />
+      </Link>
       <FontAwesomeIcon
         icon={faBars}
         className='h-8 w-8'

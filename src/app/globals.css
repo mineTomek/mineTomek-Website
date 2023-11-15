@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   @apply hidden;
 }
 
 .border-pulse {
   @apply [animation:_border-pulse_3s_cubic-bezier(0.4,_0,_0.6,_1)_infinite];
+}
+
+.timeline-item-description strong {
+  @apply text-primary-500;
+}
+
+.timeline-item-description a {
+  @apply font-bold text-primary-400 underline;
 }
 
 @keyframes border-pulse {

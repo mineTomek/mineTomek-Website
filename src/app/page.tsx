@@ -62,9 +62,15 @@ export default function Home() {
             Here you can find all my work, and the newest updates
           </p>
         </div>
-        <div className='md:col-start-2 mx-auto flex flex-col items-center gap-4 pt-16 md:pt-0'>
-          <Button text='Check the blog' disabled />
-          <Button text='Go to the project timeline' disabled />
+        <div className='mx-auto flex flex-col items-center gap-4 pt-16 md:col-start-2 md:pt-0'>
+          <Button
+            text='Check the blog'
+            disabled
+          />
+          <Button
+            text='Go to the project timeline'
+            clickAction={router => router.push('/timeline')}
+          />
         </div>
 
         <div className='md:col-span-2'>

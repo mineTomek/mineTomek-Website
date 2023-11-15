@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "framer-motion": "^10.16.4",
     "next": "13.5.5",
     "react": "^18",
     "react-dom": "^18",
+    "react-markdown": "^9.0.1",
     "swr": "^2.2.4"
   },
   "devDependencies": {
