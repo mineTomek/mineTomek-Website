@@ -12,6 +12,7 @@ import { faAnglesDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
 import Logo from './components/Logo'
 import Button from './components/Button'
+import { motion } from 'framer-motion'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -73,12 +74,16 @@ export default function Home() {
           />
         </div>
 
-        <div className='md:col-span-2'>
+        <motion.div
+          className='md:col-span-2'
+          initial={{ translateY: '3rem', opacity: 0 }}
+          animate={{ translateY: 0, opacity: 1 }}
+        >
           <FontAwesomeIcon
             icon={faAnglesDown}
             className='h-10 w-10 pt-8 motion-safe:animate-pulse'
           />
-        </div>
+        </motion.div>
       </div>
 
       <h2 className='text-center text-2xl'>
