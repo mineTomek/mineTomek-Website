@@ -12,6 +12,7 @@ import { faAnglesDown, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
 import Logo from './components/Logo'
 import Button from './components/Button'
+import { motion } from 'framer-motion'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -40,13 +41,13 @@ export default function Home() {
   }, [])
 
   return (
-    <main className='mb-6 flex min-h-[100vh] flex-col gap-y-4'>
+    <main className='mb-6 flex min-h-[100vh] flex-col gap-4'>
       <div
-        className={`text-bold grid min-h-[calc(100vh-4rem)] items-center bg-gradient-to-b from-zinc-100 to-transparent px-6 py-16 dark:from-zinc-800 md:grid-cols-2 ${
+        className={`text-bold grid min-h-[calc(100vh-4rem-1rem)] items-center bg-gradient-to-b from-zinc-100 to-transparent px-6 pb-16 dark:from-zinc-800 md:grid-cols-2 ${
           getTitleFont().className
         } text-center`}
       >
-        <div className='border-pulse col-span-1 col-start-1 mx-auto h-52 w-52 rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow dark:from-zinc-700 dark:to-zinc-900 md:col-span-2'>
+        <div className='border-pulse col-span-1 col-start-1 mx-auto mt-4 h-52 w-52 rounded-2xl border-2 bg-gradient-to-br from-white to-primary-100 p-6 shadow dark:from-zinc-700 dark:to-zinc-900 md:col-span-2'>
           <Logo
             width={200}
             height={200}
@@ -62,7 +63,7 @@ export default function Home() {
             Here you can find all my work, and the newest updates
           </p>
         </div>
-        <div className='mx-auto flex flex-col items-center gap-4 pt-16 md:col-start-2 md:pt-0'>
+        <div className='.flex-col mx-auto mt-4 flex items-center gap-4 md:col-start-2'>
           <Button
             text='Check the blog'
             disabled
@@ -73,12 +74,16 @@ export default function Home() {
           />
         </div>
 
-        <div className='md:col-span-2'>
+        <motion.div
+          className='md:col-span-2'
+          initial={{ translateY: '3rem', opacity: 0 }}
+          animate={{ translateY: 0, opacity: 1 }}
+        >
           <FontAwesomeIcon
             icon={faAnglesDown}
             className='h-10 w-10 pt-8 motion-safe:animate-pulse'
           />
-        </div>
+        </motion.div>
       </div>
 
       <h2 className='text-center text-2xl'>
