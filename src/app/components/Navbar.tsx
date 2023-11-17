@@ -3,6 +3,7 @@ import { getTitleFont } from '../fonts'
 import Logo from './Logo'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
+import SideMenu from './navbar/SideMenu'
 
 export default function Navbar() {
   return (
@@ -18,6 +19,7 @@ export default function Navbar() {
         icon={faBars}
         className='h-8 w-8'
       />
+      <SideMenu />
     </div>
   )
 }
