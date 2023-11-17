@@ -17,7 +17,7 @@ export default function Navbar() {
       </Link>
       <FontAwesomeIcon
         icon={faBars}
-        className='h-8 w-8'
+        className='pointer-events-none z-20 h-8 w-8'
       />
       <SideMenu />
     </div>
