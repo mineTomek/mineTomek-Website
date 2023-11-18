@@ -62,7 +62,7 @@ export default function SideMenu() {
         }`}
         onClick={_e => setIsOpen(prev => !prev)}
       >
-        <motion.p variants={{ open: { opacity: 1 }, closed: { opacity: 0 } }}>
+        <motion.p variants={{ open: { opacity: 1 }, closed: { opacity: 0.3 } }}>
           Menu
         </motion.p>
       </div>
