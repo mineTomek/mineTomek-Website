@@ -3,6 +3,7 @@
 import SideMenuItem from '@/app/types/SideMenuItem'
 import { Variants, motion } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const sidebar: Variants = {
@@ -49,6 +50,8 @@ const menuItems: SideMenuItem[] = [
 
 export default function SideMenu() {
   const [isOpen, setIsOpen] = useState(false)
+
+  const currentPath = usePathname()
 
   return (
     <motion.div
