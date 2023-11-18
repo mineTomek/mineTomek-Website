@@ -1,6 +1,8 @@
 'use client'
 
 import SideMenuItem from '@/app/types/SideMenuItem'
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Variants, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -78,7 +80,15 @@ export default function SideMenu() {
             key={`menu_item_${i}`}
             variants={menuItem}
           >
-            <Link href={item.href} onClick={_e => setIsOpen(false)}>{item.label}</Link>
+            <Link
+              href={item.href}
+              onClick={_e => setIsOpen(false)}
+            >
+              {item.label}
+              {currentPath !== item.href && (
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+              )}
+            </Link>
           </motion.div>
         ))}
       </motion.div>
