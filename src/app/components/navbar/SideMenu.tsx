@@ -57,8 +57,8 @@ export default function SideMenu() {
       animate={isOpen ? 'open' : 'closed'}
     >
       <div
-        className={`ml-auto flex h-16 flex-col justify-center bg-zinc-100 pl-5 transition-[background-color,width] ${
-          isOpen ? 'w-full dark:bg-zinc-900' : 'w-16 dark:bg-zinc-800'
+        className={`ml-auto flex h-16 cursor-pointer flex-col justify-center bg-zinc-100 transition-[background-color,width] ${
+          isOpen ? 'w-ful pl-4 dark:bg-zinc-900' : 'w-16 pl-16 dark:bg-zinc-800'
         }`}
         onClick={_e => setIsOpen(prev => !prev)}
       >
