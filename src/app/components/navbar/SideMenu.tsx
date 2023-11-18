@@ -83,6 +83,9 @@ export default function SideMenu() {
             <Link
               href={item.href}
               onClick={_e => setIsOpen(false)}
+              className={`flex justify-between ${
+                currentPath === item.href && 'bold text-primary-300'
+              }`}
             >
               {item.label}
               {currentPath !== item.href && (
