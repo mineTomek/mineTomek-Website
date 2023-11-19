@@ -9,6 +9,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Text from '../components/Text'
 import PostCard from '../components/PostCard'
+import Select from 'react-select'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -78,7 +79,7 @@ export default function Blog() {
         </div>
       )}
 
-      <div className='flex justify-between mr-6'>
+      <div className='mr-6 flex justify-between'>
         {categories && !isLoadingCategories && !categoriesError && (
           <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
             {categories.map(category => (
@@ -108,6 +109,13 @@ export default function Blog() {
             ))}
           </div>
         )}
+        <Select
+          options={[
+            { value: 'one', label: 'One' },
+            { value: 'two', label: 'Two' },
+            { value: 'three', label: 'Three' },
+          ]}
+        />
       </div>
       {posts && !isLoadingPosts && !postsError && (
         <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
