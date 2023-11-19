@@ -111,9 +111,12 @@ export default function Blog() {
         )}
         <Select
           options={[
-            { value: 'one', label: 'One' },
-            { value: 'two', label: 'Two' },
-            { value: 'three', label: 'Three' },
+            { value: 'date_asc', label: 'Date Ascending' },
+            { value: 'date_desc', label: 'Date Descending' },
+            { value: 'name_asc', label: 'Name Ascending' },
+            { value: 'name_desc', label: 'Name Descending' },
+            { value: 'views_asc', label: 'Views Ascending' },
+            { value: 'views_desc', label: 'Views Descending' },
           ]}
         />
       </div>
