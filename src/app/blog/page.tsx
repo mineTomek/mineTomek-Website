@@ -118,6 +118,21 @@ export default function Blog() {
             { value: 'views_asc', label: 'Views Ascending' },
             { value: 'views_desc', label: 'Views Descending' },
           ]}
+          placeholder='Sort by...'
+          unstyled
+          classNames={{
+            container: _state => 'relative box-border',
+            control: _state =>
+              'w-80 border dark:border-zinc-700 rounded-md flex align-center justify-between box-border relative',
+            valueContainer: _state => 'py-2 px-2',
+            indicatorsContainer: _state => 'px-2',
+            menu: _state => 'p-4 bg-zinc-700 rounded-md',
+            menuList: _state => 'flex flex-col gap-4',
+            option: state =>
+              `hover:text-primary-400 transition-colors ${
+                state.isSelected && 'font-bold'
+              }`,
+          }}
         />
       </div>
       {posts && !isLoadingPosts && !postsError && (
