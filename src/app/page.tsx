@@ -21,7 +21,7 @@ export default function Home() {
     data: posts,
     isLoading: isLoadingPosts,
     error: postsError,
-  } = useSWR<Post[]>('/api/posts', fetcher)
+  } = useSWR<Post[]>('/api/posts/main-page', fetcher)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
