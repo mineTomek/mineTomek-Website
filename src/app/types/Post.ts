@@ -5,6 +5,7 @@ export default interface Post {
   creationDate: Date
   authorId: ObjectId
   title: MultiLanguageText
+  subtitle: MultiLanguageText
   content: MultiLanguageText
   languages: string[]
   imageUrl: string
