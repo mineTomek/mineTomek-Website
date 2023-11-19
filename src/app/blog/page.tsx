@@ -78,36 +78,37 @@ export default function Blog() {
         </div>
       )}
 
-      {categories && !isLoadingCategories && !categoriesError && (
-        <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
-          {categories.map(category => (
-            <div
-              key={category._id.toString()}
-              className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center transition-transform [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 hover:-translate-y-1 dark:border-zinc-800 ${
-                selectedCategory === category._id &&
-                'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
-              }`}
-              onClick={() => {
-                if (selectedCategory === category._id) {
-                  setSelectedCategory(undefined)
-                } else {
-                  setSelectedCategory(category._id)
-                }
-              }}
-            >
-              <span>{category.icon}</span>
-              <span className='tracking-wider'>{category.name}</span>
-              {selectedCategory === category._id && (
-                <FontAwesomeIcon
-                  icon={faCheck}
-                  className='my-auto'
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-
+      <div className='flex justify-between mr-6'>
+        {categories && !isLoadingCategories && !categoriesError && (
+          <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
+            {categories.map(category => (
+              <div
+                key={category._id.toString()}
+                className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center transition-transform [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 hover:-translate-y-1 dark:border-zinc-800 ${
+                  selectedCategory === category._id &&
+                  'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
+                }`}
+                onClick={() => {
+                  if (selectedCategory === category._id) {
+                    setSelectedCategory(undefined)
+                  } else {
+                    setSelectedCategory(category._id)
+                  }
+                }}
+              >
+                <span>{category.icon}</span>
+                <span className='tracking-wider'>{category.name}</span>
+                {selectedCategory === category._id && (
+                  <FontAwesomeIcon
+                    icon={faCheck}
+                    className='my-auto'
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
       {posts && !isLoadingPosts && !postsError && (
         <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
           {posts
