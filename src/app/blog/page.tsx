@@ -121,6 +121,7 @@ export default function Blog() {
             { value: 'views_desc', label: 'Views Descending' },
           ]}
           placeholder='Sort by...'
+          isClearable
           unstyled
           classNames={{
             container: _state => 'relative box-border',
