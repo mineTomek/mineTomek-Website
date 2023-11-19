@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 export default function PostCard(props: {
   name: string
   link: string
-  description: string
+  subtitle?: string
   imageSrc: string
   category?: Category
 }) {
@@ -37,10 +37,12 @@ export default function PostCard(props: {
             />
           </div>
         </div>
-        <p>
-          {props.description.split('.')[0] +
-            (props.description.split('.').length > 2 ? '...' : '.')}
-        </p>
+        {props.subtitle && (
+          <p>
+            {props.subtitle.split('.')[0] +
+              (props.subtitle.split('.').length > 2 ? '...' : '.')}
+          </p>
+        )}
         <motion.div
           initial={{ translateY: '3rem', opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
