@@ -113,8 +113,8 @@ export default function Blog() {
           options={[
             { value: 'date_asc', label: 'Date Ascending' },
             { value: 'date_desc', label: 'Date Descending' },
-            { value: 'name_asc', label: 'Name Ascending' },
-            { value: 'name_desc', label: 'Name Descending' },
+            { value: 'title_asc', label: 'Title Ascending' },
+            { value: 'title_desc', label: 'Title Descending' },
             { value: 'views_asc', label: 'Views Ascending' },
             { value: 'views_desc', label: 'Views Descending' },
           ]}
