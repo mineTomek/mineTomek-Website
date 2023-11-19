@@ -147,6 +147,32 @@ export default function Blog() {
               }
               return true
             })
+            .sort((a, b) => {
+              const direction =
+                sorting === null ? 0 : sorting.split('_')[1] === 'asc' ? 1 : -1
+              switch (sorting === null ? '' : sorting.split('_')[0]) {
+                case 'date':
+                  return (
+                    (Number.parseInt(a._id.toString().substring(0, 8), 16) -
+                      Number.parseInt(b._id.toString().substring(0, 8), 16)) *
+                    direction
+                  )
+                case 'title':
+                  const aTitle = (
+                    userLanguage === 'pl_PL' ? a.title.pl : a.title.en
+                  ).toLowerCase()
+                  const bTitle = (
+                    userLanguage === 'pl_PL' ? b.title.pl : b.title.en
+                  ).toLowerCase()
+                  return (
+                    (aTitle < bTitle ? -1 : aTitle > bTitle ? 1 : 0) * direction
+                  )
+                case 'views':
+                  return a.views - b.views * direction
+                default:
+                  return 0
+              }
+            })
             .map((post, i) => (
               <PostCard
                 key={post._id.toString()}
