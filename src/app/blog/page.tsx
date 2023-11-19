@@ -20,6 +20,8 @@ export default function Blog() {
     ObjectId | undefined
   >(undefined)
 
+  const [sorting, setSorting] = useState<string | null>(null)
+
   const {
     data: posts,
     isLoading: isLoadingPosts,
@@ -133,6 +135,7 @@ export default function Blog() {
                 state.isSelected && 'font-bold'
               }`,
           }}
+          onChange={event => setSorting(event == null ? null : event.value)}
         />
       </div>
       {posts && !isLoadingPosts && !postsError && (
