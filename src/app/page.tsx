@@ -55,7 +55,7 @@ export default function Home() {
         <div className='.flex-col mx-auto mt-4 flex items-center gap-4 md:col-start-2'>
           <Button
             text='Check the blog'
-            disabled
+            clickAction={router => router.push('/blog')}
           />
           <Button
             text='Go to the project timeline'
