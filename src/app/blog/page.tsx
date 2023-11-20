@@ -49,14 +49,6 @@ export default function Blog() {
         />
       </h2>
 
-      {(isLoadingPosts || isLoadingCategories) && (
-        <div className='pt-16'>
-          <div className='flex w-screen justify-center gap-4 p-2'>
-            <span>Loading...</span>
-          </div>
-        </div>
-      )}
-
       {!posts && !isLoadingPosts && !postsError && (
         <div className='p-4'>
           <p>Couldn{"'"}t retrieve posts data, but no error occurred!</p>
@@ -82,35 +74,37 @@ export default function Blog() {
       )}
 
       <div className='mr-6 flex justify-between'>
-        {categories && !isLoadingCategories && !categoriesError && (
-          <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
-            {categories.map(category => (
-              <div
-                key={category._id.toString()}
-                className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center transition-transform [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 hover:-translate-y-1 dark:border-zinc-800 ${
-                  selectedCategory === category._id &&
-                  'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
-                }`}
-                onClick={() => {
-                  if (selectedCategory === category._id) {
-                    setSelectedCategory(undefined)
-                  } else {
-                    setSelectedCategory(category._id)
-                  }
-                }}
-              >
-                <span>{category.icon}</span>
-                <span className='tracking-wider'>{category.name}</span>
-                {selectedCategory === category._id && (
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    className='my-auto'
-                  />
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+        <div>
+          {categories && !isLoadingCategories && !categoriesError && (
+            <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
+              {categories.map(category => (
+                <div
+                  key={category._id.toString()}
+                  className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center transition-transform [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 hover:-translate-y-1 dark:border-zinc-800 ${
+                    selectedCategory === category._id &&
+                    'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
+                  }`}
+                  onClick={() => {
+                    if (selectedCategory === category._id) {
+                      setSelectedCategory(undefined)
+                    } else {
+                      setSelectedCategory(category._id)
+                    }
+                  }}
+                >
+                  <span>{category.icon}</span>
+                  <span className='tracking-wider'>{category.name}</span>
+                  {selectedCategory === category._id && (
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className='my-auto'
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
         <Select
           options={[
             { value: 'date_asc', label: 'Date Ascending' },
@@ -139,6 +133,7 @@ export default function Blog() {
           onChange={event => setSorting(event == null ? null : event.value)}
         />
       </div>
+
       {posts && !isLoadingPosts && !postsError && (
         <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
           {posts
@@ -186,6 +181,14 @@ export default function Blog() {
                 category={categories?.find(c => c._id === post.categoryId)}
               />
             ))}
+        </div>
+      )}
+
+      {(isLoadingPosts || isLoadingCategories) && (
+        <div className='pt-16'>
+          <div className='flex w-screen justify-center gap-4 p-2'>
+            <span>Loading...</span>
+          </div>
         </div>
       )}
     </main>
