@@ -73,7 +73,7 @@ export default function Blog() {
         </div>
       )}
 
-      <div className='mr-6 flex justify-between'>
+      <div className='mr-6 flex flex-col-reverse justify-between lg:flex-row'>
         <div>
           {categories && !isLoadingCategories && !categoriesError && (
             <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
@@ -118,7 +118,7 @@ export default function Blog() {
           isClearable
           unstyled
           classNames={{
-            container: _state => 'relative box-border',
+            container: _state => 'relative box-border ml-6',
             control: _state =>
               'w-80 border dark:border-zinc-700 rounded-md flex align-center justify-between box-border relative',
             valueContainer: _state => 'py-2 px-2',
