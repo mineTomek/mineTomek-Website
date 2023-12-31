@@ -17,7 +17,7 @@ export default function Selection<T>(props: {
       {props.options.map((option, i) => (
         <div
           key={`option-${option.value}`}
-          className='relative flex aspect-square items-center justify-center rounded-md px-2'
+          className='relative flex aspect-square items-center justify-center rounded-md px-2 cursor-pointer'
           onClick={event => {
             setSelectedOption(i)
             props.onChange(option.value)
