@@ -60,8 +60,9 @@ export default function SideMenu() {
 
   return (
     <motion.div
-      className='fixed bottom-0 right-0 top-0 z-10 w-80 gap-2'
+      className='fixed right-0 top-0 z-10 w-80 gap-2'
       initial={false}
+      variants={{ open: { height: '100%' }, closed: { height: '0%' } }}
       animate={isOpen ? 'open' : 'closed'}
     >
       <div
