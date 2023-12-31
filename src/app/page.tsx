@@ -62,7 +62,7 @@ export default function Home() {
           </Button>
           <Button clickAction={_ => alert("Why click me?")} color='zinc' defaultCursor>
             <Countdown
-            to={new Date(`Jan 1, ${new Date().getFullYear() + 1} 0:0:0`)}
+            to={new Date(`Jan 1, 2024 0:0:0`)}
             countdownSuffix={`until ${new Date().getFullYear() + 1}`}
             finishedMessage={
               <Text
