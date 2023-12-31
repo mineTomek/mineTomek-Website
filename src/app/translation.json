@@ -2,5 +2,9 @@
   "newest_posts": {
     "en": "Newest posts:",
     "pl": "Najnowsze posty:"
+  },
+  "happy_new_year": {
+    "en": "Happy %d!",
+    "pl": "Szczęśliwego %d!"
   }
 }

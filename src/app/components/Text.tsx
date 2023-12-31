@@ -8,7 +8,11 @@ interface Translations {
 
 const translations: Translations = data
 
-export default function Text(props: { text: string; lang: string }) {
+export default function Text(props: {
+  text: string
+  lang: string
+  replacement?: string
+}) {
   let userLanguage = props.lang
 
   if (userLanguage.includes('en')) {
@@ -25,7 +29,7 @@ export default function Text(props: { text: string; lang: string }) {
     <span>
       {translation == undefined || translation.length == 0
         ? 'Error'
-        : translation}
+        : translation.replace('%d', props.replacement ?? '%d')}
     </span>
   )
 }
