@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) based website for mineTomek (_made by m
 
 ## Where is this website?
 
-This website is hosted on vercel and for now has this domain: https://mine-tomek-website.vercel.app/. The individual branches can be accessed with this url: `https://mine-tomek-website-git-[branch_name]-minetomek.vercel.app`, for example `https://mine-tomek-website-git-improve-layout-and-styling-minetomek.vercel.app`.
+This website is hosted on vercel and is available on https://mineTomek.com.
 
 ## Getting Started
 
@@ -17,7 +17,7 @@ yarn dev
 # or
 pnpm dev
 # or (preferred & fastest)
-bun run dev
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
