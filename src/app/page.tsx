@@ -103,19 +103,27 @@ export default function Home() {
       )}
 
       {posts && !isLoadingPosts && !postsError && (
-        <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
-          {posts.map(post => (
-            <PostCard
-              key={post._id.toString()}
-              name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
-              subtitle={
-                userLanguage === 'pl_PL' ? post.subtitle.pl : post.subtitle.en
-              }
-              link={'/'}
-              imageSrc={post.imageUrl}
-            />
-          ))}
-        </div>
+        <>
+          <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
+            {posts.map(post => (
+              <PostCard
+                key={post._id.toString()}
+                name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
+                subtitle={
+                  userLanguage === 'pl_PL' ? post.subtitle.pl : post.subtitle.en
+                }
+                link={'/'}
+                imageSrc={post.imageUrl}
+              />
+            ))}
+          </div>
+
+          <Button
+            text='See More Posts'
+            clickAction={router => router.push('/blog')}
+            className='mx-auto'
+          />
+        </>
       )}
     </main>
   )
