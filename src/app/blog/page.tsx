@@ -5,11 +5,16 @@ import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 import Post from '../types/Post'
 import Category from '../types/Category'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowDown,
+  faArrowUp,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Text from '../components/Text'
 import PostCard from '../components/PostCard'
-import Select from 'react-select'
+import Selection from '../components/Selection'
+import { faCalendar, faEdit, faEye } from '@fortawesome/free-regular-svg-icons'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -21,6 +26,7 @@ export default function Blog() {
   >(undefined)
 
   const [sorting, setSorting] = useState<string | null>(null)
+  const [sortingDirection, setSortingDirection] = useState<number>(1)
 
   const {
     data: posts,
@@ -73,7 +79,7 @@ export default function Blog() {
         </div>
       )}
 
-      <div className='mr-6 flex flex-col-reverse justify-between lg:flex-row'>
+      <div className='mr-6 flex flex-col-reverse justify-between gap-3 lg:flex-row'>
         <div>
           {categories && !isLoadingCategories && !categoriesError && (
             <div className='no-scrollbar flex snap-x gap-4 overflow-x-auto py-1'>
@@ -105,33 +111,25 @@ export default function Blog() {
             </div>
           )}
         </div>
-        <Select
-          options={[
-            { value: 'date_asc', label: 'Date Ascending' },
-            { value: 'date_desc', label: 'Date Descending' },
-            { value: 'title_asc', label: 'Title Ascending' },
-            { value: 'title_desc', label: 'Title Descending' },
-            { value: 'views_asc', label: 'Views Ascending' },
-            { value: 'views_desc', label: 'Views Descending' },
-          ]}
-          placeholder='Sort by...'
-          isClearable
-          unstyled
-          classNames={{
-            container: _state => 'relative box-border ml-6',
-            control: _state =>
-              'w-80 border dark:border-zinc-700 rounded-md flex align-center justify-between box-border relative',
-            valueContainer: _state => 'py-2 px-2',
-            indicatorsContainer: _state => 'px-2',
-            menu: _state => 'p-4 bg-zinc-700 rounded-md',
-            menuList: _state => 'flex flex-col gap-4',
-            option: state =>
-              `hover:text-primary-400 transition-colors ${
-                state.isSelected && 'font-bold'
-              }`,
-          }}
-          onChange={event => setSorting(event == null ? null : event.value)}
-        />
+        <div className='ml-6 flex justify-evenly'>
+          <Selection
+            selectionId='sorting-category'
+            options={[
+              { value: 'date', icon: faCalendar },
+              { value: 'title', icon: faEdit },
+              { value: 'views', icon: faEye },
+            ]}
+            onChange={newValue => setSorting(newValue)}
+          />
+          <Selection
+            selectionId='sorting-direction'
+            options={[
+              { value: 1, icon: faArrowDown },
+              { value: -1, icon: faArrowUp },
+            ]}
+            onChange={newDirection => setSortingDirection(newDirection)}
+          />
+        </div>
       </div>
 
       {posts && !isLoadingPosts && !postsError && (
@@ -144,9 +142,10 @@ export default function Blog() {
               return true
             })
             .sort((a, b) => {
-              const direction =
-                sorting === null ? 0 : sorting.split('_')[1] === 'asc' ? 1 : -1
-              switch (sorting === null ? '' : sorting.split('_')[0]) {
+              const direction = sortingDirection
+
+              switch (sorting) {
+                default:
                 case 'date':
                   return (
                     (Number.parseInt(a._id.toString().substring(0, 8), 16) -
@@ -165,11 +164,9 @@ export default function Blog() {
                   )
                 case 'views':
                   return a.views - b.views * direction
-                default:
-                  return 0
               }
             })
-            .map((post, i) => (
+            .map(post => (
               <PostCard
                 key={post._id.toString()}
                 name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
