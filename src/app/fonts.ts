@@ -1,7 +1,7 @@
-import { Inter, Kdam_Thmor_Pro } from 'next/font/google'
+import { Noto_Sans_Cuneiform, Rubik } from 'next/font/google'
 
-const title = Kdam_Thmor_Pro({ subsets: ['latin'], weight: '400' })
-const content = Inter({ subsets: ['latin'] })
+const title = Rubik({ subsets: ['latin'], weight: '400' })
+const content = Noto_Sans_Cuneiform({ subsets: ['latin'], weight: '400' })
 
 export function getTitleFont() {
   return title
