@@ -53,19 +53,15 @@ export default function Home() {
             Here you can find all my work, and the newest updates
           </p>
         </div>
-        <div className='.flex-col mx-auto mt-4 flex items-center gap-4 md:col-start-2'>
-          <Button
-            text='Check the blog'
-            clickAction={router => router.push('/blog')}
-          />
-          <Button
-            text='Go to the project timeline'
-            clickAction={router => router.push('/timeline')}
-          />
-        </div>
-
-        <div className='col-span-2 mx-auto mt-6 w-fit cursor-default rounded-md border bg-zinc-100 p-2 [box-shadow:1px_-4px_3px_0_#00000070_inset] disabled:cursor-default disabled:opacity-50 dark:border-primary-950 dark:bg-zinc-800'>
-          <Countdown
+        <div className='flex-col mx-auto mt-4 flex items-center gap-4 md:col-start-2'>
+          <Button clickAction={router => router.push('/blog')}>
+            Check the blog
+          </Button>
+          <Button clickAction={router => router.push('/timeline')}>
+            Go to the project timeline
+          </Button>
+          <Button clickAction={_ => alert("Why click me?")} color='zinc' defaultCursor>
+            <Countdown
             to={new Date(`Jan 1, ${new Date().getFullYear() + 1} 0:0:0`)}
             countdownSuffix={`until ${new Date().getFullYear() + 1}`}
             finishedMessage={
@@ -76,6 +72,7 @@ export default function Home() {
               />
             }
           />
+          </Button>
         </div>
 
         <motion.div
@@ -134,10 +131,11 @@ export default function Home() {
           </div>
 
           <Button
-            text='See More Posts'
             clickAction={router => router.push('/blog')}
             className='mx-auto'
-          />
+          >
+            See More Posts
+          </Button>
         </>
       )}
     </main>
