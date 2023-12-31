@@ -34,10 +34,11 @@ export default function Item(props: { item: TimelineItem; index: number }) {
           return (
             <Button
               key={`timeline_item_${props.index}_button_${iButton}`}
-              text={button.label}
               clickAction={router => router.push(button.href)}
               className='w-full md:w-auto'
-            />
+            >
+              {button.label}
+            </Button>
           )
         })}
       </div>
