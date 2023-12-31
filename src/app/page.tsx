@@ -11,6 +11,7 @@ import { getTitleFont } from './fonts'
 import Logo from './components/Logo'
 import Button from './components/Button'
 import { motion } from 'framer-motion'
+import Countdown from './components/Countdown'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -60,6 +61,20 @@ export default function Home() {
           <Button
             text='Go to the project timeline'
             clickAction={router => router.push('/timeline')}
+          />
+        </div>
+
+        <div className='col-span-2 mx-auto mt-6 w-fit cursor-default rounded-md border bg-zinc-100 p-2 [box-shadow:1px_-4px_3px_0_#00000070_inset] disabled:cursor-default disabled:opacity-50 dark:border-primary-950 dark:bg-zinc-800'>
+          <Countdown
+            to={new Date(`Jan 1, ${new Date().getFullYear() + 1} 0:0:0`)}
+            countdownSuffix={`until ${new Date().getFullYear() + 1}`}
+            finishedMessage={
+              <Text
+                text='happy_new_year'
+                lang={userLanguage}
+                replacement={new Date().getFullYear().toString()}
+              />
+            }
           />
         </div>
 
