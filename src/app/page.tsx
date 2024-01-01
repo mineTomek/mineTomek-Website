@@ -60,7 +60,7 @@ export default function Home() {
           <Button clickAction={router => router.push('/timeline')}>
             Go to the project timeline
           </Button>
-          <Button clickAction={_ => alert("Why click me?")} color='zinc' defaultCursor>
+          <Button color='zinc' defaultCursor>
             <Countdown
             to={new Date(`Jan 1, 2024 0:0:0`)}
             countdownSuffix={`until ${new Date().getFullYear() + 1}`}
