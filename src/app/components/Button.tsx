@@ -2,21 +2,25 @@ import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.share
 import { useRouter } from 'next/navigation'
 import { PropsWithChildren } from 'react'
 
+type ButtonColor = 'primary' | 'secondary' | 'accent' | 'zinc'
+
+const buttonColors: Record<ButtonColor, string> = {
+  primary: 'bg-primary-100 dark:bg-primary-800',
+  secondary: 'bg-secondary-100 dark:bg-secondary-800',
+  accent: 'bg-accent-100 dark:bg-accent-800',
+  zinc: 'bg-zinc-100 dark:bg-zinc-800',
+}
+
 export default function Button(
   props: PropsWithChildren<{
     disabled?: boolean
     className?: string
     clickAction?: (router: AppRouterInstance) => void
-    color?: string
+    color?: ButtonColor
     defaultCursor?: boolean
   }>
 ) {
   const router = useRouter()
-
-  const buttonColors: any = {
-    primary: 'bg-primary-100 dark:bg-primary-800',
-    zinc: 'bg-zinc-100 dark:bg-zinc-800',
-  }
 
   return (
     <button
