@@ -49,10 +49,7 @@ export default function Blog() {
   return (
     <main className='mb-6 flex min-h-[100vh] flex-col gap-4 pt-4'>
       <h2 className='text-center text-2xl'>
-        <Text
-          text='newest_posts'
-          lang={userLanguage}
-        />
+        Blog
       </h2>
 
       {!posts && !isLoadingPosts && !postsError && (
