@@ -1,6 +1,6 @@
 'use client'
 
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
@@ -44,7 +44,7 @@ export default function Selection<T>(props: {
 
 export interface SelectionOption<T> {
   value: T
-  icon: IconProp
+  icon: IconDefinition
 }
 
 export type SelectionChangeCallback<T> = (newValue: T) => void
