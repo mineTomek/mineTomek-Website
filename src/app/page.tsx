@@ -30,6 +30,26 @@ export default function Home() {
     }
   }, [])
 
+  const showNewYearCountdown = () => {
+    const now = new Date()
+
+    const checkForBeginningOfYear = () => {
+      const beginningDate = new Date(now.getFullYear() - 1, 11, 30)
+      const endDate = new Date(now.getFullYear(), 0, 8)
+
+      return beginningDate < now && now < endDate
+    }
+
+    const checkForEndOfYear = () => {
+      const beginningDate = new Date(now.getFullYear(), 11, 30)
+      const endDate = new Date(now.getFullYear() + 1, 0, 8)
+
+      return beginningDate < now && now < endDate
+    }
+
+    return checkForBeginningOfYear() || checkForEndOfYear()
+  }
+
   return (
     <main className='mb-6 flex min-h-[100vh] flex-col gap-4'>
       <div
@@ -60,19 +80,24 @@ export default function Home() {
           <Button clickAction={router => router.push('/timeline')}>
             Go to the project timeline
           </Button>
-          <Button color='zinc' defaultCursor>
-            <Countdown
-            to={new Date(`Jan 1, 2024 0:0:0`)}
-            countdownSuffix={`until ${new Date().getFullYear() + 1}`}
-            finishedMessage={
-              <Text
-                text='happy_new_year'
-                lang={userLanguage}
-                replacement={new Date().getFullYear().toString()}
+          {showNewYearCountdown() && (
+            <Button
+              color='zinc'
+              defaultCursor
+            >
+              <Countdown
+                to={new Date(`Jan 1, 2024 0:0:0`)}
+                countdownSuffix={`until ${new Date().getFullYear() + 1}`}
+                finishedMessage={
+                  <Text
+                    text='happy_new_year'
+                    lang={userLanguage}
+                    replacement={new Date().getFullYear().toString()}
+                  />
+                }
               />
-            }
-          />
-          </Button>
+            </Button>
+          )}
         </div>
 
         <motion.div
