@@ -73,7 +73,7 @@ export default function Home() {
             Here you can find all my work, and the newest updates
           </p>
         </div>
-        <div className='flex-col mx-auto mt-4 flex items-center gap-4 md:col-start-2'>
+        <div className='mx-auto mt-4 flex flex-col items-center gap-4 md:col-start-2'>
           <Button clickAction={router => router.push('/blog')}>
             Check the blog
           </Button>
