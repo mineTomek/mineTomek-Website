@@ -11,19 +11,25 @@ export default function Home({ params }: { params: { name: string } }) {
     data: link,
     isLoading: loadingLink,
     error: linkLoadingError,
-  } = useSWR<string>(`/api/link?name=${params.name}`, fetcher)
+  } = useSWR<string | {message: string}>(`/api/link?name=${params.name}`, fetcher)
 
   const router = useRouter()
 
-  if (link) {
+  if (link && typeof link == 'string') {
     router.push(link)
   }
 
   return (
-    <div className={`flex justify-evenly items-center h-[calc(100dvh-4rem)] text-xl`}>
+    <div
+      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl`}
+    >
+      {linkLoadingError &&
+        'Something went wrong. Error: ' + linkLoadingError}
+      {link && typeof link != 'string' && `Short-link '${params.name}' doesn't exist.`}
       {loadingLink && 'Loading your destination...'}
-      {linkLoadingError && 'Something went wrong. Error: ' + linkLoadingError}
-      {link && 'Redirecting you to the destination...'}
+      {link &&
+        typeof link == 'string' &&
+        'Redirecting you to the destination...'}
     </div>
   )
 }
