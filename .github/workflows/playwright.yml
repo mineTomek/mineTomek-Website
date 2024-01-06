@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Check CPU Cores
-      run: |
-        nproc
     - uses: actions/setup-node@v3
       with:
         node-version: 18
@@ -23,7 +20,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test --verbose
+      run: npx playwright test --reporter=list --workers=4
     - uses: actions/upload-artifact@v3
       if: always()
       with:
