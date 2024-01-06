@@ -11,10 +11,10 @@ import {
   faCheck,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Text from '../components/Text'
 import PostCard from '../components/PostCard'
 import Selection from '../components/Selection'
 import { faCalendar, faEdit, faEye } from '@fortawesome/free-regular-svg-icons'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -112,9 +112,9 @@ export default function Blog() {
           <Selection
             selectionId='sorting-category'
             options={[
-              { value: 'date', icon: faCalendar },
-              { value: 'title', icon: faEdit },
-              { value: 'views', icon: faEye },
+              { value: 'date', icon: faCalendar as IconDefinition },
+              { value: 'title', icon: faEdit as IconDefinition },
+              { value: 'views', icon: faEye as IconDefinition },
             ]}
             onChange={newValue => setSorting(newValue)}
           />
