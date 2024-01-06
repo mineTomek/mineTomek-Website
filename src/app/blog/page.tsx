@@ -3,7 +3,6 @@
 import { ObjectId } from 'mongodb'
 import { useEffect, useState } from 'react'
 import useSWR from 'swr'
-import Post from '../types/Post'
 import Category from '../types/Category'
 import {
   faArrowDown,
@@ -14,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PostCard from '../components/PostCard'
 import Selection from '../components/Selection'
 import { faCalendar, faEdit, faEye } from '@fortawesome/free-regular-svg-icons'
+import Post from '../types/Post'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
