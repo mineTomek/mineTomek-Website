@@ -17,7 +17,7 @@ test('blog button', async ({ page }) => {
   await expect(page).toHaveURL('/blog')
 
    await expect(
-     page.getByRole('heading', { name: 'Welcome to my project timeline!' })
+     page.getByRole('heading', { name: 'Blog' })
    ).toBeVisible()
 })
 
@@ -29,6 +29,6 @@ test('timeline button', async ({ page }) => {
   await expect(page).toHaveURL('/timeline')
 
   await expect(
-    page.getByRole('heading', { name: 'Blog' })
+    page.getByRole('heading', { name: 'Welcome to my project timeline!' })
   ).toBeVisible()
 })
