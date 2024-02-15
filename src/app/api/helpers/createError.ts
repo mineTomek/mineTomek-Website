@@ -1,17 +1,18 @@
-import type { NextApiResponse } from 'next'
-
 export default function createError(
   errorMessage: string | undefined,
   errorCode: number = 500,
   error: Error | undefined = undefined
 ) {
-  const errorStack = error == undefined ? null : (error as Error).stack
+  const stack = error == undefined ? null : (error as Error).stack
+
+  const message =
+    errorMessage == undefined ? 'An error occurred' : errorMessage
 
   return Response.json(
     {
-      message: errorMessage == undefined ? 'An error occurred' : errorMessage,
-      stack: errorStack,
+      message,
+      stack,
     },
-    { status: errorCode }
+    { status: errorCode, statusText: message }
   )
 }

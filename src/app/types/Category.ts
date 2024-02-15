@@ -1,10 +1,4 @@
-import { ObjectId } from 'mongodb'
-
 export default interface Category {
-  _id: ObjectId
+  id: string
   name: string
-  description: string
-  variations: string[]
-  icon: string
-  slug: string
 }

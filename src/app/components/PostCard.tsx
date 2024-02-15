@@ -6,7 +6,7 @@ import Category from '../types/Category'
 import { motion } from 'framer-motion'
 
 export default function PostCard(props: {
-  name: string
+  title: string
   link: string
   subtitle?: string
   imageSrc: string
@@ -25,10 +25,10 @@ export default function PostCard(props: {
         rel='noopener noreferrer'
       >
         <div className='flex justify-between text-lg tracking-wide'>
-          {props.name}
+          {props.title}
           <div className='flex gap-4'>
             <span className='my-auto text-sm text-zinc-600 dark:text-zinc-300'>
-              {props.category && props.category.name}
+              {props.category && props.category.name.split(':')[1]}
             </span>
             <FontAwesomeIcon
               icon={faQuoteRight}
@@ -37,12 +37,7 @@ export default function PostCard(props: {
             />
           </div>
         </div>
-        {props.subtitle && (
-          <p>
-            {props.subtitle.split('.')[0] +
-              (props.subtitle.split('.').length > 2 ? '...' : '.')}
-          </p>
-        )}
+        {props.subtitle && <p>{props.subtitle}</p>}
         <motion.div
           initial={{ translateY: '3rem', opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}

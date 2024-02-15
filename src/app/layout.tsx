@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import Navbar from './components/Navbar'
 import { getContentFont } from './fonts'
@@ -6,8 +6,13 @@ import { getContentFont } from './fonts'
 export const metadata: Metadata = {
   title: 'mineTomek',
   description: "mineTomek's official website",
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'light dark',
   themeColor: '#4e9c76',
-  viewport: 'width=device-width, initial-scale=1',
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({

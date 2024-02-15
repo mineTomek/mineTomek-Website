@@ -1,32 +1,26 @@
 import createError from '@/app/api/helpers/createError'
-import getDb from '@/app/api/helpers/db'
 import { NextRequest } from 'next/server'
+import initHeaders from '../../helpers/initHeaders'
+import parseTimeline from '../../helpers/parsing/parseTimeline'
 
 export async function GET(request: NextRequest) {
   try {
-    const db = await getDb()
+    const headers = initHeaders()
 
-    const collection = db.collection('timeline')
-
-    let query = {}
-
-    const q = request.nextUrl.searchParams.get('q')
-
-    if (q) {
-      try {
-        query = JSON.parse(q.toString())
-      } catch (error) {
-        return createError(
-          `Invalid query parameter: '${q}'`,
-          400,
-          error as Error
-        )
+    const result = await fetch(
+      `https://api.notion.com/v1/databases/${
+        process.env.NOTION_TIMELINE_DB ?? ''
+      }/query`,
+      {
+        method: 'POST',
+        redirect: 'follow',
+        headers,
       }
-    }
+    ).then(res => res.json())
 
-    const items = await collection.find(query).sort({ date: 1 }).toArray()
+    const timeline = await parseTimeline(result.results)
 
-    return Response.json(items)
+    return Response.json(timeline)
   } catch (error) {
     return createError((error as Error).message, 500, error as Error)
   }
