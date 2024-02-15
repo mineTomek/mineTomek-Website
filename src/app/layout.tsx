@@ -32,6 +32,7 @@ export default function RootLayout({
       >
         <Navbar />
         <div className='mt-16 bg-white dark:bg-zinc-900'>{children}</div>
+        {!process.env.LOADED_ENV && <p>.env isn&apos;t loaded</p>}
       </body>
     </html>
   )
