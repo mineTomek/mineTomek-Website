@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import Text from './components/Text'
+import React from 'react'
 import useSWR from 'swr'
 import Post from './types/Post'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,19 +15,11 @@ import PostCard from './components/PostCard'
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
-  const [userLanguage, setUserLanguage] = useState('en-US')
-
   const {
     data: posts,
     isLoading: isLoadingPosts,
     error: postsError,
   } = useSWR<Post[]>('/api/posts/main-page', fetcher)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setUserLanguage(window.navigator.language)
-    }
-  }, [])
 
   const showNewYearCountdown = () => {
     const now = new Date()
@@ -88,13 +79,9 @@ export default function Home() {
               <Countdown
                 to={new Date(`Jan 1, 2024 0:0:0`)}
                 countdownSuffix={`until ${new Date().getFullYear() + 1}`}
-                finishedMessage={
-                  <Text
-                    text='happy_new_year'
-                    lang={userLanguage}
-                    replacement={new Date().getFullYear().toString()}
-                  />
-                }
+                finishedMessage={`Happy ${new Date()
+                  .getFullYear()
+                  .toString()}!`}
               />
             </Button>
           )}
@@ -112,12 +99,7 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <h2 className='text-center text-2xl'>
-        <Text
-          text='newest_posts'
-          lang={userLanguage}
-        />
-      </h2>
+      <h2 className='text-center text-2xl'>Newest posts:</h2>
 
       {isLoadingPosts && (
         <div className='pt-16'>
@@ -145,10 +127,8 @@ export default function Home() {
             {posts.map(post => (
               <PostCard
                 key={post.id}
-                title={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
-                subtitle={
-                  userLanguage === 'pl_PL' ? post.subtitle.pl : post.subtitle.en
-                }
+                title={post.title}
+                subtitle={post.subtitle}
                 link={'/'}
                 imageSrc={post.cover_url}
               />

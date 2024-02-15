@@ -1,5 +1,5 @@
 import Category from '@/app/types/Category'
-import Post, { MultiLanguageText } from '@/app/types/Post'
+import Post from '@/app/types/Post'
 import Tag from '@/app/types/Tag'
 
 export default function parsePages(pages: any[]) {
@@ -10,21 +10,10 @@ export default function parsePages(pages: any[]) {
         name: tag.name ?? '',
       })) ?? []
 
-    const title: MultiLanguageText = {
-      en:
-        (page.properties?.Name?.title[0].plain_text as string) ?? 'Error Title',
-      pl: 'Brak Polskiego Tytułu',
-    }
-
-    const subtitle: MultiLanguageText = {
-      en: (page.properties?.Subtitle?.rich_text[0]?.plain_text as string) ?? '',
-      pl: 'Brak Polskiego Podtytułu',
-    }
-
     const post: Post = {
       id: (page.id as string) ?? '',
-      title,
-      subtitle,
+      title: (page.properties?.Name?.title[0].plain_text as string) ?? 'Error Title',
+      subtitle: (page.properties?.Subtitle?.rich_text[0]?.plain_text as string) ?? '',
       created_time: new Date((page.created_time as string) ?? ''),
       cover_url: (page.cover?.external?.url as string) ?? '',
       category: (page.properties?.Category?.select as Category) ?? {

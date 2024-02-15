@@ -20,9 +20,9 @@ const fetcher = (url: string) => fetch(url).then(res => res.json())
 export default function Blog() {
   const [userLanguage, setUserLanguage] = useState('en-US')
 
-  const [selectedCategory, setSelectedCategory] = useState<
-    string | undefined
-  >(undefined)
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>(
+    undefined
+  )
 
   const [sorting, setSorting] = useState<string | null>(null)
   const [sortingDirection, setSortingDirection] = useState<number>(1)
@@ -107,7 +107,7 @@ export default function Blog() {
             </div>
           )}
         </div>
-        <div className='ml-6 flex gap-4 justify-evenly'>
+        <div className='ml-6 flex justify-evenly gap-4'>
           <Selection
             selectionId='sorting-category'
             options={[
@@ -148,12 +148,8 @@ export default function Blog() {
                     new Date(b.created_time).getTime() * direction
                   )
                 case 'title':
-                  const aTitle = (
-                    userLanguage === 'pl_PL' ? a.title.pl : a.title.en
-                  ).toLowerCase()
-                  const bTitle = (
-                    userLanguage === 'pl_PL' ? b.title.pl : b.title.en
-                  ).toLowerCase()
+                  const aTitle = a.title.toLowerCase()
+                  const bTitle = b.title.toLowerCase()
                   return (
                     (aTitle < bTitle ? -1 : aTitle > bTitle ? 1 : 0) * direction
                   )
@@ -164,10 +160,8 @@ export default function Blog() {
             .map(post => (
               <PostCard
                 key={post.id.toString()}
-                title={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
-                subtitle={
-                  userLanguage === 'pl_PL' ? post.subtitle.pl : post.subtitle.en
-                }
+                title={post.title}
+                subtitle={post.subtitle}
                 link={'/'}
                 imageSrc={post.cover_url}
                 category={categories?.find(c => c.id === post.category.id)}
