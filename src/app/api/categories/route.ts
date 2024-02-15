@@ -1,32 +1,27 @@
 import createError from '@/app/api/helpers/createError'
-import getDb from '@/app/api/helpers/db'
 import { NextRequest } from 'next/server'
+import initHeaders from '../helpers/initHeaders'
+import Category from '@/app/types/Category'
+import parseCategories from '../helpers/parsing/parseCategories'
 
 export async function GET(request: NextRequest) {
   try {
-    const db = await getDb()
+    const headers = initHeaders()
 
-    const collection = db.collection('categories')
-
-    let query = {}
-
-    const q = request.nextUrl.searchParams.get('q')
-
-    if (q) {
-      try {
-        query = JSON.parse(q.toString())
-      } catch (error) {
-        return createError(
-          `Invalid query parameter: '${q}'`,
-          400,
-          error as Error
-        )
+    const result = await fetch(
+      `https://api.notion.com/v1/databases/${
+        process.env.NOTION_POSTS_DB ?? ''
+      }`,
+      {
+        method: 'GET',
+        redirect: 'follow',
+        headers,
       }
-    }
+    ).then(res => res.json())
 
-    const posts = await collection.find(query).toArray()
+    const categories: Category[] = parseCategories(result.properties.Category)
 
-    return Response.json(posts)
+    return Response.json(categories)
   } catch (error) {
     return createError((error as Error).message, 500, error as Error)
   }

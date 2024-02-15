@@ -1,18 +1,16 @@
-import { ObjectId } from 'mongodb'
+import Category from "./Category"
+import Tag from "./Tag"
+
+export type PostWithContent = Post & { content: string }
 
 export default interface Post {
-  _id: ObjectId
-  creationDate: Date
-  authorId: ObjectId
+  id: string
   title: MultiLanguageText
   subtitle: MultiLanguageText
-  content: MultiLanguageText
-  languages: string[]
-  imageUrl: string
-  views: number
-  categoryId: ObjectId
-  categoryVariation: number
-  tags: string[]
+  created_time: Date
+  cover_url: string
+  category: Category,
+  tags: Tag[]
 }
 
 export interface MultiLanguageText {

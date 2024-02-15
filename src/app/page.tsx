@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import Text from './components/Text'
 import useSWR from 'swr'
 import Post from './types/Post'
-import PostCard from './components/PostCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 import { getTitleFont } from './fonts'
@@ -12,6 +11,7 @@ import Logo from './components/Logo'
 import Button from './components/Button'
 import { motion } from 'framer-motion'
 import Countdown from './components/Countdown'
+import PostCard from './components/PostCard'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       )}
 
-      {!posts && !isLoadingPosts && !postsError && (
+      {posts == undefined && !isLoadingPosts && !postsError && (
         <div className='p-4'>
           <p>Couldn{"'"}t retrieve posts data, but no error occurred!</p>
         </div>
@@ -139,18 +139,18 @@ export default function Home() {
         </div>
       )}
 
-      {posts && !isLoadingPosts && !postsError && (
+      {posts != undefined && !isLoadingPosts && !postsError && (
         <>
           <div className='mx-6 grid gap-5 sm:grid-cols-2 md:grid-cols-3'>
             {posts.map(post => (
               <PostCard
-                key={post._id.toString()}
-                name={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
+                key={post.id}
+                title={userLanguage === 'pl_PL' ? post.title.pl : post.title.en}
                 subtitle={
                   userLanguage === 'pl_PL' ? post.subtitle.pl : post.subtitle.en
                 }
                 link={'/'}
-                imageSrc={post.imageUrl}
+                imageSrc={post.cover_url}
               />
             ))}
           </div>

@@ -6,12 +6,12 @@ import useSWR from 'swr'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
-export default function Home({ params }: { params: { name: string } }) {
+export default function Home({ params }: { params: { slug: string } }) {
   const {
     data: link,
     isLoading: loadingLink,
     error: linkLoadingError,
-  } = useSWR<string | {message: string}>(`/api/link?name=${params.name}`, fetcher)
+  } = useSWR<string | {message: string}>(`/api/link/${params.slug}`, fetcher)
 
   const router = useRouter()
 
@@ -21,11 +21,11 @@ export default function Home({ params }: { params: { name: string } }) {
 
   return (
     <div
-      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl`}
+      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl ${getTitleFont().className}`}
     >
       {linkLoadingError &&
         'Something went wrong. Error: ' + linkLoadingError}
-      {link && typeof link != 'string' && `Short-link '${params.name}' doesn't exist.`}
+      {link && typeof link != 'string' && `Short-link '${params.slug}' doesn't exist.`}
       {loadingLink && 'Loading your destination...'}
       {link &&
         typeof link == 'string' &&

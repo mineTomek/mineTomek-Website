@@ -1,22 +1,40 @@
 import createError from '@/app/api/helpers/createError'
-import getDb from '@/app/api/helpers/db'
-import { ObjectId } from 'mongodb'
+import Post from '@/app/types/Post'
 import { NextRequest } from 'next/server'
+import parsePages from '../../helpers/parsing/parsePages'
+import initHeaders from '../../helpers/initHeaders'
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const db = await getDb()
+    const body = JSON.stringify({
+      filter: {
+        property: 'ID',
+        select: {
+          equals: params.id,
+        },
+      },
+    })
 
-    const collection = db.collection('posts')
+    const headers = initHeaders()
 
-    const posts = await collection
-      .find({ _id: new ObjectId(params.id) })
-      .toArray()
+    const result = await fetch(
+      `https://api.notion.com/v1/databases/${
+        process.env.NOTION_POSTS_DB ?? ''
+      }/query`,
+      {
+        method: 'POST',
+        redirect: 'follow',
+        headers,
+        body,
+      }
+    ).then(res => res.json())
 
-    return Response.json(posts)
+    const posts: Post[] = parsePages(result.results)
+
+    return Response.json(posts[0])
   } catch (error) {
     return createError((error as Error).message, 500, error as Error)
   }
