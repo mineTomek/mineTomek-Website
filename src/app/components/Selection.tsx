@@ -13,7 +13,7 @@ export default function Selection<T>(props: {
   const [selectedOption, setSelectedOption] = useState(0)
 
   return (
-    <div className='align-center relative box-border flex gap-4 rounded-lg border p-2 dark:border-zinc-700'>
+    <div className='align-center relative box-border flex gap-4 p-2'>
       {props.options.map((option, i) => (
         <div
           key={`option-${option.value}`}

@@ -80,9 +80,10 @@ export default function Blog() {
               {categories.map(category => (
                 <div
                   key={category.id}
-                  className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md border p-2 text-center transition-transform [box-shadow:1px_-4px_3px_0_#00000012_inset] first:ml-6 last:mr-6 hover:-translate-y-1 dark:border-zinc-800 ${
-                    selectedCategory === category.id &&
-                    'bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800'
+                  className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md p-2 text-center transition-transform first:ml-6 last:mr-6 hover:-translate-y-1 ${
+                    selectedCategory === category.id
+                      ? 'bg-primary-100 dark:bg-primary-800'
+                      : 'bg-zinc-100 dark:bg-zinc-800'
                   }`}
                   onClick={() => {
                     if (selectedCategory === category.id) {
@@ -99,7 +100,7 @@ export default function Blog() {
                   {selectedCategory === category.id && (
                     <FontAwesomeIcon
                       icon={faCheck}
-                      className='my-auto'
+                      className='my-auto text-primary-800 dark:text-primary-200'
                     />
                   )}
                 </div>

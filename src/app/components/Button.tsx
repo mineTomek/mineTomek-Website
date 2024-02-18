@@ -27,7 +27,7 @@ export default function Button(
       className={
         `w-fit ${
           props.defaultCursor && 'cursor-default'
-        } rounded-md border p-2 [box-shadow:1px_-4px_3px_0_#00000070_inset] disabled:cursor-default disabled:opacity-50 dark:border-primary-950 ${
+        } rounded-full p-4 disabled:cursor-default disabled:opacity-50 ${
           buttonColors[props.color ?? 'primary']
         } ` + props.className ?? ''
       }
