@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import Navbar from './components/Navbar'
 import { getContentFont } from './fonts'
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function RootLayout({
           getContentFont().className
         } text-text-800 dark:text-text-50`}
       >
-        <Navbar />
         <div className='mt-16 bg-white dark:bg-zinc-900'>{children}</div>
         {!process.env.LOADED_ENV && <p>.env isn&apos;t loaded</p>}
       </body>
