@@ -1,11 +1,35 @@
 'use client'
 
+import { getTitleFont } from '@/app/fonts'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import useSWR from 'swr'
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
-  const router = useRouter()
-  router.push('/link/server')
+  const {
+    data: link,
+    isLoading: loadingLink,
+    error: linkLoadingError,
+  } = useSWR<string | {message: string}>(`/api/link/server`, fetcher)
 
-  return <></>
+  const router = useRouter()
+
+  if (link && typeof link == 'string') {
+    router.push(link)
+  }
+
+  return (
+    <div
+      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl ${getTitleFont().className}`}
+    >
+      {linkLoadingError &&
+        'Something went wrong. Error: ' + linkLoadingError}
+      {link && typeof link != 'string' && `Short-link 'server' doesn't exist.`}
+      {loadingLink && 'Loading your destination...'}
+      {link &&
+        typeof link == 'string' &&
+        'Redirecting you to the destination...'}
+    </div>
+  )
 }
