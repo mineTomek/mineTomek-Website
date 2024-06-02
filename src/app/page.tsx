@@ -1,35 +1,38 @@
 'use client'
 
-import { getTitleFont } from '@/app/fonts'
 import { useRouter } from 'next/navigation'
-import useSWR from 'swr'
+// import { getTitleFont } from '@/app/fonts'
+// import useSWR from 'swr'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 export default function Home() {
-  const {
-    data: link,
-    isLoading: loadingLink,
-    error: linkLoadingError,
-  } = useSWR<string | {message: string}>(`/api/link/server`, fetcher)
+  // const {
+  //   data: link,
+  //   isLoading: loadingLink,
+  //   error: linkLoadingError,
+  // } = useSWR<string | {message: string}>(`/api/server`, fetcher)
 
   const router = useRouter()
 
-  if (link && typeof link == 'string') {
-    router.push(link)
-  }
+  // if (link && typeof link == 'string') {
+  //   router.push(link)
+  // }
+
+  router.push('/api/server')
 
   return (
-    <div
-      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl ${getTitleFont().className}`}
-    >
-      {linkLoadingError &&
-        'Something went wrong. Error: ' + linkLoadingError}
-      {link && typeof link != 'string' && `Short-link 'server' doesn't exist.`}
-      {loadingLink && 'Loading your destination...'}
-      {link &&
-        typeof link == 'string' &&
-        'Redirecting you to the destination...'}
-    </div>
+    <></>
+    // <div
+    //   className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl ${getTitleFont().className}`}
+    // >
+    //   {linkLoadingError &&
+    //     'Something went wrong. Error: ' + linkLoadingError}
+    //   {link && typeof link != 'string' && `Short-link 'server' doesn't exist.`}
+    //   {loadingLink && 'Loading your destination...'}
+    //   {link &&
+    //     typeof link == 'string' &&
+    //     'Redirecting you to the destination...'}
+    // </div>
   )
 }

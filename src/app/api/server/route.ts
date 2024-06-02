@@ -1,17 +1,16 @@
 import createError from '@/app/api/helpers/createError'
 import { NextRequest } from 'next/server'
-import initHeaders from '../../helpers/initHeaders'
+import initHeaders from '../helpers/initHeaders'
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { slug: string } }
+  request: NextRequest
 ) {
   try {
     const body = JSON.stringify({
       filter: {
         property: 'Name',
         title: {
-          equals: params.slug,
+          equals: 'server',
         },
       },
     })
@@ -30,13 +29,16 @@ export async function GET(
       }
     ).then(res => res.json())
 
+    console.log(result.results)
+
     const dest: string = result.results[0].properties.Destination.url
 
     if (!dest) {
-      return createError(`There's no link with name '${params.slug}'`, 400)
+      return createError(`There's no link with name 'server'`, 400)
     }
 
-    return Response.json(dest)
+    // return Response.json(dest)
+    return Response.redirect(dest)
   } catch (error) {
     return createError((error as Error).message, 500, error as Error)
   }
