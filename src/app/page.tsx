@@ -25,7 +25,7 @@ export default function Home() {
     const now = new Date()
 
     const checkForBeginningOfYear = () => {
-      const beginningDate = new Date(now.getFullYear() - 1, 11, 30)
+      const beginningDate = new Date(now.getFullYear() - 1, 11, 24)
       const endDate = new Date(now.getFullYear(), 0, 8)
 
       return beginningDate < now && now < endDate
