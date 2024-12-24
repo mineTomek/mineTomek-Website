@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
 
     const headers = initHeaders()
 
-    const result = await fetch(
+    const response = await fetch(
       `https://api.notion.com/v1/databases/${
         process.env.NOTION_POSTS_DB ?? ''
       }/query`,
@@ -28,7 +28,13 @@ export async function GET(request: NextRequest) {
         headers,
         body,
       }
-    ).then(res => res.json())
+    )
+
+    if (response.status === 404) {
+      return createError('Post database not found', 404)
+    }
+
+    const result = await response.json()
 
     const posts: Post[] = parsePages(result.results)
 
