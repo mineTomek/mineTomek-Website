@@ -10,11 +10,13 @@ export default function Countdown(props: {
   const [difference, setDifference] = useState(0)
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       const newDifference = props.to.getTime() - new Date().getTime()
 
       setDifference(newDifference)
     }, 10)
+
+    return () => clearInterval(intervalId)
   }, [props.to])
 
   var days = Math.floor(difference / (1000 * 60 * 60 * 24))
