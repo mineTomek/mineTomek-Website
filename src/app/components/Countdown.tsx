@@ -12,7 +12,7 @@ export default function Countdown(props: {
   useEffect(() => {
     setInterval(() => {
       const newDifference = props.to.getTime() - new Date().getTime()
-      console.log(newDifference)
+
       setDifference(newDifference)
     }, 100)
   }, [props.to])
