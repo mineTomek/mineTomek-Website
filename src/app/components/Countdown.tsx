@@ -14,7 +14,7 @@ export default function Countdown(props: {
       const newDifference = props.to.getTime() - new Date().getTime()
 
       setDifference(newDifference)
-    }, 100)
+    }, 10)
   }, [props.to])
 
   var days = Math.floor(difference / (1000 * 60 * 60 * 24))
