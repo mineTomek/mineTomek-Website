@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@vercel/speed-insights": "^1.1.0",
     "caniuse-lite": "^1.0.30001690",
     "framer-motion": "^10.16.4",
     "next": "latest",
