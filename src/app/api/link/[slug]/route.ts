@@ -18,7 +18,7 @@ export async function GET(
 
     const headers = initHeaders()
 
-    const result = await fetch(
+    const response = await fetch(
       `https://api.notion.com/v1/databases/${
         process.env.NOTION_LINKS_DB ?? ''
       }/query`,
@@ -28,7 +28,13 @@ export async function GET(
         headers,
         body,
       }
-    ).then(res => res.json())
+    )
+
+    if (response.status === 404) {
+      return createError('Link database not found', 404)
+    }
+
+    const result = await response.json()
 
     const dest: string = result.results[0].properties.Destination.url
 
