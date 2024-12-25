@@ -39,7 +39,7 @@ export async function GET(
     const dest: string = result.results[0].properties.Destination.url
 
     if (!dest) {
-      return createError(`There's no link with name '${params.slug}'`, 400)
+      return createError(`There's no link with name '${params.slug}'`, 404)
     }
 
     return Response.json(dest)
