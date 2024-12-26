@@ -72,10 +72,7 @@ export default function Home() {
             Go to the project timeline
           </Button>
           {showNewYearCountdown() && (
-            <Button
-              color='zinc'
-              defaultCursor
-            >
+            <div className='w-fit rounded-full bg-zinc-100/70 p-4 dark:bg-zinc-800/40'>
               <Countdown
                 to={
                   new Date(
@@ -91,7 +88,7 @@ export default function Home() {
                   .getFullYear()
                   .toString()}!`}
               />
-            </Button>
+            </div>
           )}
         </div>
 
