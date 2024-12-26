@@ -5,8 +5,7 @@ export default function createError(
 ) {
   const stack = error == undefined ? null : (error as Error).stack
 
-  const message =
-    errorMessage == undefined ? 'An error occurred' : errorMessage
+  const message = errorMessage == undefined ? 'An error occurred' : errorMessage
 
   return Response.json(
     {

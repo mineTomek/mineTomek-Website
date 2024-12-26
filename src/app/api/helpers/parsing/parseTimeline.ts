@@ -12,9 +12,7 @@ export default async function parseTimeline(pages: any[]) {
     const headers = initHeaders()
 
     const result = await fetch(
-      `https://api.notion.com/v1/blocks/${
-        page.id
-      }/children`,
+      `https://api.notion.com/v1/blocks/${page.id}/children`,
       {
         method: 'GET',
         redirect: 'follow',
@@ -22,7 +20,11 @@ export default async function parseTimeline(pages: any[]) {
       }
     ).then(res => res.json())
 
-    const description = parseRichText(result.results[0].paragraph.rich_text.map((res: any) => res as RichTextElement))
+    const description = parseRichText(
+      result.results[0].paragraph.rich_text.map(
+        (res: any) => res as RichTextElement
+      )
+    )
 
     const item: TimelineItem = {
       id: (page.id as string) ?? '',

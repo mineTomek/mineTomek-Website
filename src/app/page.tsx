@@ -77,7 +77,15 @@ export default function Home() {
               defaultCursor
             >
               <Countdown
-                to={new Date(new Date().getMonth() < 6 ? new Date().getFullYear() : new Date().getFullYear() + 1, 0, 1)}
+                to={
+                  new Date(
+                    new Date().getMonth() < 6
+                      ? new Date().getFullYear()
+                      : new Date().getFullYear() + 1,
+                    0,
+                    1
+                  )
+                }
                 countdownSuffix={`until ${new Date().getFullYear() + 1}`}
                 finishedMessage={`Happy ${new Date()
                   .getFullYear()

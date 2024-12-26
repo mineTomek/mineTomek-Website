@@ -1,5 +1,5 @@
-import Category from "./Category"
-import Tag from "./Tag"
+import Category from './Category'
+import Tag from './Tag'
 
 export type PostWithContent = Post & { content: string }
 
@@ -9,6 +9,6 @@ export default interface Post {
   subtitle: string
   created_time: Date
   cover_url: string
-  category: Category,
+  category: Category
   tags: Tag[]
 }

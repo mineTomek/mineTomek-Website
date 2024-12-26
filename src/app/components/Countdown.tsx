@@ -30,7 +30,8 @@ export default function Countdown(props: {
     <>
       {difference > 0 && (
         <span>
-          {days !== 0 && days + "d"} {hours}h {minutes}m {seconds}s {props.countdownSuffix}
+          {days !== 0 && days + 'd'} {hours}h {minutes}m {seconds}s{' '}
+          {props.countdownSuffix}
         </span>
       )}
       {difference <= 0 && props.finishedMessage}

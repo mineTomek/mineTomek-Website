@@ -12,8 +12,10 @@ export default function parsePages(pages: any[]) {
 
     const post: Post = {
       id: (page.id as string) ?? '',
-      title: (page.properties?.Name?.title[0].plain_text as string) ?? 'Error Title',
-      subtitle: (page.properties?.Subtitle?.rich_text[0]?.plain_text as string) ?? '',
+      title:
+        (page.properties?.Name?.title[0].plain_text as string) ?? 'Error Title',
+      subtitle:
+        (page.properties?.Subtitle?.rich_text[0]?.plain_text as string) ?? '',
       created_time: new Date((page.created_time as string) ?? ''),
       cover_url: (page.cover?.external?.url as string) ?? '',
       category: (page.properties?.Category?.select as Category) ?? {
