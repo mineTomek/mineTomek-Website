@@ -19,8 +19,8 @@ const sidebar: Variants = {
     transform: 'translateX(0)',
 
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
+      delayChildren: 0.1,
+      staggerChildren: 0.05,
     },
   },
   closed: {
