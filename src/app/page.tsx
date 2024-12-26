@@ -66,11 +66,11 @@ export default function Home() {
         </div>
         <div className='mx-auto mt-4 flex flex-col items-center gap-4 md:col-start-2'>
           <div className='flex flex-wrap justify-center gap-4'>
-            <Button clickAction={router => router.push('/blog')}>
-              Check the blog
-            </Button>
             <Button clickAction={router => router.push('/timeline')}>
               Go to the project timeline
+            </Button>
+            <Button clickAction={router => router.push('/blog')} color='accent'>
+              Check the blog
             </Button>
           </div>
           {showNewYearCountdown() && (
