@@ -1,6 +1,7 @@
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import { useRouter } from 'next/navigation'
 import { PropsWithChildren } from 'react'
+import { mergeCss } from '../utils/mergeCss'
 
 type ButtonColor = 'primary' | 'secondary' | 'accent' | 'zinc'
 
@@ -24,13 +25,12 @@ export default function Button(
 
   return (
     <button
-      className={
-        `w-fit ${
-          props.defaultCursor && 'cursor-default'
-        } rounded-full p-4 disabled:cursor-default disabled:opacity-50 shadow-none hover:shadow-xl transition-all hover:scale-110 hover:rotate-1 hover:brightness-125 ${
-          buttonColors[props.color ?? 'primary']
-        } ` + (props.className ?? '')
-      }
+      className={mergeCss(
+        'w-fit rounded-full p-4 shadow-none transition-all hover:rotate-1 hover:scale-110 hover:shadow-xl hover:brightness-125 disabled:cursor-default disabled:opacity-50',
+        props.defaultCursor && 'cursor-default',
+        buttonColors[props.color ?? 'primary'],
+        props.className
+      )}
       disabled={props.disabled ?? false}
       onClick={() => {
         if (props.clickAction) {

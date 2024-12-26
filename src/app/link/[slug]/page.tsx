@@ -1,6 +1,7 @@
 'use client'
 
 import { getTitleFont } from '@/app/fonts'
+import { mergeCss } from '@/app/utils/mergeCss'
 import { useRouter } from 'next/navigation'
 import useSWR from 'swr'
 
@@ -21,7 +22,10 @@ export default function Home({ params }: { params: { slug: string } }) {
 
   return (
     <div
-      className={`flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl ${getTitleFont().className}`}
+      className={mergeCss(
+        'flex h-[calc(100dvh-4rem)] items-center justify-evenly text-xl',
+        getTitleFont().className
+      )}
     >
       {linkLoadingError && 'Something went wrong. Error: ' + linkLoadingError}
       {link &&

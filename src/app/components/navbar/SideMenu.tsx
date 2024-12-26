@@ -1,6 +1,7 @@
 'use client'
 
 import SideMenuItem from '@/app/types/SideMenuItem'
+import { mergeCss } from '@/app/utils/mergeCss'
 import {
   faArrowUpRightFromSquare,
   faHouse,
@@ -74,9 +75,10 @@ export default function SideMenu() {
       animate={isOpen ? 'open' : 'closed'}
     >
       <div
-        className={`ml-auto flex h-16 cursor-pointer flex-col justify-center bg-zinc-200 transition-[background-color,width] ${
+        className={mergeCss(
+          'ml-auto flex h-16 cursor-pointer flex-col justify-center bg-zinc-200 transition-[background-color,width]',
           isOpen ? 'pl-4 dark:bg-zinc-900' : 'w-16 pl-16 dark:bg-zinc-800'
-        }`}
+        )}
         onClick={_e => setIsOpen(prev => !prev)}
       >
         <motion.p variants={{ open: { opacity: 1 }, closed: { opacity: 0.3 } }}>
@@ -95,16 +97,20 @@ export default function SideMenu() {
             <Link
               href={item.href}
               onClick={_e => setIsOpen(false)}
-              className={`flex justify-between ${
+              className={mergeCss(
+                'flex justify-between',
                 currentPath === item.href && 'bold text-primary-400'
-              }`}
+              )}
             >
               {item.label}
               <FontAwesomeIcon
                 icon={item.icon}
-                className={`${
-                  currentPath === item.href ? 'text-primary-400' : 'text-black dark:text-white'
-                } h-5 w-5`}
+                className={mergeCss(
+                  'h-5 w-5',
+                  currentPath === item.href
+                    ? 'text-primary-400'
+                    : 'text-black dark:text-white'
+                )}
               />
             </Link>
           </motion.div>

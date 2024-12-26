@@ -4,13 +4,15 @@ import Logo from './Logo'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import SideMenu from './navbar/SideMenu'
+import { mergeCss } from '../utils/mergeCss'
 
 export default function Navbar() {
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-50 flex h-16 flex-row items-center justify-between gap-2 bg-zinc-100 px-4 dark:bg-zinc-800 ${
+      className={mergeCss(
+        'fixed inset-x-0 top-0 z-50 flex h-16 flex-row items-center justify-between gap-2 bg-zinc-100 px-4 dark:bg-zinc-800',
         getTitleFont().className
-      }`}
+      )}
     >
       <Link href='/'>
         <Logo />

@@ -14,6 +14,7 @@ import { faCalendar, faEdit } from '@fortawesome/free-regular-svg-icons'
 import Post from '../types/Post'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { mergeCss } from '../utils/mergeCss'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
 
@@ -80,11 +81,12 @@ export default function Blog() {
               {categories.map(category => (
                 <div
                   key={category.id}
-                  className={`flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md p-2 text-center transition-transform first:ml-6 last:mr-6 hover:-translate-y-1 ${
+                  className={mergeCss(
+                    'flex cursor-pointer snap-start scroll-mx-6 gap-2 rounded-md p-2 text-center transition-transform first:ml-6 last:mr-6 hover:-translate-y-1',
                     selectedCategory === category.id
                       ? 'bg-primary-100 dark:bg-primary-800'
                       : 'bg-zinc-100 dark:bg-zinc-800'
-                  }`}
+                  )}
                   onClick={() => {
                     if (selectedCategory === category.id) {
                       setSelectedCategory(undefined)
