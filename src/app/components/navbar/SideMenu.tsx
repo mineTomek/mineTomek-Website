@@ -2,12 +2,7 @@
 
 import SideMenuItem from '@/app/types/SideMenuItem'
 import { mergeCss } from '@/app/utils/mergeCss'
-import {
-  faArrowUpRightFromSquare,
-  faHouse,
-  faPager,
-  faTimeline,
-} from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faPager, faTimeline } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Variants, motion } from 'framer-motion'
 import Link from 'next/link'
