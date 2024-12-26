@@ -59,7 +59,7 @@ export default function Home() {
           mineTomek
         </h1>
         <div className='col-span-1 col-start-1'>
-          <h3 className='text-md'>The official mineTomek{"'"}s website</h3>
+          <h2 className='text-md'>The official mineTomek{"'"}s website</h2>
           <p className='pt-8'>
             Here you can find all my work, and the newest updates
           </p>
