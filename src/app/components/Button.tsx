@@ -27,7 +27,7 @@ export default function Button(
       className={
         `w-fit ${
           props.defaultCursor && 'cursor-default'
-        } rounded-full p-4 disabled:cursor-default disabled:opacity-50 ${
+        } rounded-full p-4 disabled:cursor-default disabled:opacity-50 shadow-none hover:shadow-xl transition-all hover:scale-110 hover:rotate-1 hover:brightness-125 ${
           buttonColors[props.color ?? 'primary']
         } ` + (props.className ?? '')
       }
