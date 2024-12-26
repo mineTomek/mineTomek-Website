@@ -76,8 +76,8 @@ export default function SideMenu() {
     >
       <div
         className={mergeCss(
-          'ml-auto flex h-16 cursor-pointer flex-col justify-center bg-zinc-200 transition-[background-color,width]',
-          isOpen ? 'pl-4 dark:bg-zinc-900' : 'w-16 pl-16 dark:bg-zinc-800'
+          'ml-auto flex h-16 cursor-pointer flex-col justify-center transition-[background-color,width]',
+          isOpen ? 'bg-zinc-200 pl-4 dark:bg-zinc-900' : 'w-16 pl-16'
         )}
         onClick={_e => setIsOpen(prev => !prev)}
       >
