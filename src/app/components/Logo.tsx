@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { mergeCss } from '../utils/mergeCss'
 
 export default function Logo(props: {
   width?: number
@@ -11,7 +12,7 @@ export default function Logo(props: {
       alt='logo'
       width={props.width ?? 48}
       height={props.height ?? 48}
-      className={`${props.className} dark:invert`}
+      className={mergeCss(props.className, 'dark:invert')}
     />
   )
 }
