@@ -26,7 +26,7 @@ export default function Button(
   return (
     <button
       className={mergeCss(
-        'w-fit rounded-full p-4 shadow-none transition-all hover:rotate-1 hover:scale-110 hover:shadow-xl hover:brightness-125 disabled:cursor-default disabled:opacity-50',
+        'w-fit rounded-full p-4 shadow-none transition-all hover:rotate-1 hover:scale-110 hover:shadow-xl hover:brightness-125 hover:hue-rotate-15 active:-rotate-1 active:scale-95 active:brightness-95 active:-hue-rotate-[6deg] active:saturate-[.7] disabled:cursor-default disabled:opacity-50',
         props.defaultCursor && 'cursor-default',
         buttonColors[props.color ?? 'primary'],
         props.className

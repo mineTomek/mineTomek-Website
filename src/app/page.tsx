@@ -69,7 +69,10 @@ export default function Home() {
             <Button clickAction={router => router.push('/timeline')}>
               Go to the project timeline
             </Button>
-            <Button clickAction={router => router.push('/blog')} color='accent'>
+            <Button
+              clickAction={router => router.push('/blog')}
+              color='accent'
+            >
               Check the blog
             </Button>
           </div>
