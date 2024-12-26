@@ -25,14 +25,14 @@ export default function Home() {
     const now = new Date()
 
     const checkForBeginningOfYear = () => {
-      const beginningDate = new Date(now.getFullYear() - 1, 11, 30)
+      const beginningDate = new Date(now.getFullYear() - 1, 11, 24)
       const endDate = new Date(now.getFullYear(), 0, 8)
 
       return beginningDate < now && now < endDate
     }
 
     const checkForEndOfYear = () => {
-      const beginningDate = new Date(now.getFullYear(), 11, 30)
+      const beginningDate = new Date(now.getFullYear(), 11, 24)
       const endDate = new Date(now.getFullYear() + 1, 0, 8)
 
       return beginningDate < now && now < endDate
@@ -77,7 +77,7 @@ export default function Home() {
               defaultCursor
             >
               <Countdown
-                to={new Date(`Jan 1, 2024 0:0:0`)}
+                to={new Date(new Date().getMonth() < 6 ? new Date().getFullYear() : new Date().getFullYear() + 1, 0, 1)}
                 countdownSuffix={`until ${new Date().getFullYear() + 1}`}
                 finishedMessage={`Happy ${new Date()
                   .getFullYear()

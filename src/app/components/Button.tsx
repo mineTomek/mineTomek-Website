@@ -29,7 +29,7 @@ export default function Button(
           props.defaultCursor && 'cursor-default'
         } rounded-full p-4 disabled:cursor-default disabled:opacity-50 ${
           buttonColors[props.color ?? 'primary']
-        } ` + props.className ?? ''
+        } ` + (props.className ?? '')
       }
       disabled={props.disabled ?? false}
       onClick={() => {
