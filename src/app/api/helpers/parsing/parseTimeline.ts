@@ -11,14 +11,16 @@ export default async function parseTimeline(pages: any[]) {
 
     const headers = initHeaders()
 
-    const result = await fetch(
+    const response = await fetch(
       `https://api.notion.com/v1/blocks/${page.id}/children`,
       {
         method: 'GET',
         redirect: 'follow',
         headers,
       }
-    ).then(res => res.json())
+    )
+
+    const result = await response.json()
 
     const description = parseRichText(
       result.results[0].paragraph.rich_text.map(
