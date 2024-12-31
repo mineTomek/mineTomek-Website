@@ -16,30 +16,18 @@ export default function TimelinePage() {
   return (
     <div className='p-4'>
       <div className='text-center'>
-        <h1 className='text-[5vw]'>Welcome to my project timeline!</h1>
-        <p className='text-[2.8vw]'>
-          My projects are organized from the oldest to the newest.
-          <a href='#footnote'>*</a>
-        </p>
+        <h1 className=''>Project timeline</h1>
       </div>
 
-      {items && <Timeline items={items} />}
+      {items && !itemsError && !isLoadingItems && <Timeline items={items} />}
 
       {!items && !isLoadingItems && !itemsError && (
         <p>Couldn{"'"}t retrieve timeline data, but no error occurred!</p>
       )}
 
       {isLoadingItems && <p>Loading timeline items...</p>}
-      {itemsError && (
-        <p>Categories loading error: {JSON.stringify(itemsError)}</p>
-      )}
 
-      <p
-        id='footnote'
-        className='mb-8 mt-16'
-      >
-        * The dates are approximated.
-      </p>
+      {itemsError && <p>Item loading error: {JSON.stringify(itemsError)}</p>}
     </div>
   )
 }
