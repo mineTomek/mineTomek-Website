@@ -89,9 +89,11 @@ export default function Home() {
                   )
                 }
                 countdownSuffix={`until ${new Date().getFullYear() + 1}`}
-                finishedMessage={`Happy ${new Date()
-                  .getFullYear()
-                  .toString()}!`}
+                finishedMessage={`Happy ${
+                  new Date().getMonth() < 6
+                    ? new Date().getFullYear()
+                    : new Date().getFullYear() + 1
+                }!`}
               />
             </div>
           )}
