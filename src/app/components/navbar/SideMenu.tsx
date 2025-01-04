@@ -41,19 +41,16 @@ const menuItems: SideMenuItem[] = [
     label: 'Main Page',
     href: '/',
     icon: faHouse,
-    subItems: [],
   },
   {
     label: 'Blog',
     href: '/blog',
     icon: faPager,
-    subItems: [],
   },
   {
     label: 'Project Timeline',
     href: '/timeline',
     icon: faTimeline,
-    subItems: [],
   },
 ]
 

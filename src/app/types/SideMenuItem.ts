@@ -4,5 +4,5 @@ export default interface SideMenuItem {
   label: string
   href: string
   icon: IconDefinition
-  subItems: SideMenuItem[]
+  subItems?: SideMenuItem[]
 }
