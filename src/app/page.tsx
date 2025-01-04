@@ -52,7 +52,7 @@ export default function Home() {
           <Logo
             width={200}
             height={200}
-            className=''
+            className='pointer-events-none select-none'
           />
         </div>
         <h1 className='col-start-1 text-[3rem] text-text-900 dark:text-text-100 md:col-span-2'>
