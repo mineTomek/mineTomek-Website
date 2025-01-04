@@ -18,7 +18,7 @@ export default function Item(props: { item: TimelineItem; index: number }) {
           {props.item.date
             .toString()
             .split(/[-T]/g)
-            .slice(0, props.item.dateAccuracy - 1)
+            .slice(0, props.item.dateAccuracy)
             .join('/')}
         </p>
       </div>
