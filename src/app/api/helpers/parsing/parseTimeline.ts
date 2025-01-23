@@ -34,7 +34,9 @@ export default async function parseTimeline(pages: any[]) {
         (page.properties.Name.title[0].plain_text as string) ?? 'Error Title',
       description,
       buttons: JSON.parse(
-        page.properties.Buttons.rich_text[0].plain_text ?? '[]'
+        page.properties.Buttons.rich_text
+          .map((element: any) => element.plain_text)
+          .join('') ?? '[]'
       ),
       date: new Date((page.properties.Date.date.start as string) ?? ''),
       imageSrc: (page.cover?.external?.url as string) ?? '',

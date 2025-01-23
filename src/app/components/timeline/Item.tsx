@@ -10,7 +10,7 @@ export default function Item(props: { item: TimelineItem; index: number }) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: '-10%' }}
-      className='flex flex-col gap-4 p-8 before:ml-1 md:relative md:w-1/2 md:before:absolute md:before:bottom-0 md:before:top-0 md:before:w-2 md:before:bg-zinc-400 md:before:first:[border-radius:0.375rem_0.375rem_0_0] md:before:last:[border-radius:0_0_0.375rem_0.375rem] md:odd:before:left-full md:even:left-1/2 md:even:before:-left-0'
+      className='flex flex-col gap-4 p-8 before:ml-1 md:relative md:-mb-[25%] md:w-1/2 md:before:absolute md:before:bottom-0 md:before:top-0 md:before:w-2 md:before:bg-zinc-400 md:before:first:[border-radius:0.375rem_0.375rem_0_0] md:before:last:[border-radius:0_0_0.375rem_0.375rem] md:odd:before:left-full md:even:left-1/2 md:even:before:-left-0'
     >
       <div className='flex justify-between text-xl'>
         <p className='bold'>{props.item.title}</p>
@@ -23,13 +23,11 @@ export default function Item(props: { item: TimelineItem; index: number }) {
         </p>
       </div>
 
-      <p>
-        <Markdown className='timeline-item-description'>
-          {props.item.description}
-        </Markdown>
-      </p>
+      <Markdown className='timeline-item-description'>
+        {props.item.description}
+      </Markdown>
 
-      <div className='flex flex-col justify-evenly gap-4 md:flex-row'>
+      <div className='flex flex-col justify-evenly gap-4 md:flex-row md:justify-start'>
         {props.item.buttons.map((button, iButton) => {
           return (
             <Button

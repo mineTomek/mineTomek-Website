@@ -14,20 +14,30 @@ export default function TimelinePage() {
   } = useSWR<TimelineItem[]>('/api/timeline/items', fetcher)
 
   return (
-    <div className='p-4'>
-      <div className='text-center'>
-        <h1 className=''>Project timeline</h1>
-      </div>
-
-      {items && !itemsError && !isLoadingItems && <Timeline items={items} />}
+    <main className='mb-6 flex min-h-[100vh] flex-col gap-4 pt-4'>
+      <h2 className='text-center text-2xl'>Project Timeline</h2>
 
       {!items && !isLoadingItems && !itemsError && (
-        <p>Couldn{"'"}t retrieve timeline data, but no error occurred!</p>
+        <div className='p-4'>
+          <p>Couldn{"'"}t retrieve items data, but no error occurred!</p>
+        </div>
       )}
 
-      {isLoadingItems && <p>Loading timeline items...</p>}
+      {itemsError && (
+        <div className='p-4'>
+          <p>Item loading error: {JSON.stringify(itemsError)}</p>
+        </div>
+      )}
 
-      {itemsError && <p>Item loading error: {JSON.stringify(itemsError)}</p>}
-    </div>
+      {items && !isLoadingItems && !itemsError && <Timeline items={items} />}
+
+      {isLoadingItems && (
+        <div className='pt-16'>
+          <div className='flex w-screen justify-center gap-4 p-2'>
+            <span>Loading timeline items...</span>
+          </div>
+        </div>
+      )}
+    </main>
   )
 }

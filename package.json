@@ -39,5 +39,12 @@
     "prettier-plugin-tailwindcss": "^0.5.6",
     "tailwindcss": "^3",
     "typescript": "^5"
-  }
+  },
+  "trustedDependencies": [
+    "@fortawesome/fontawesome-common-types",
+    "@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-regular-svg-icons",
+    "@fortawesome/free-solid-svg-icons",
+    "@vercel/speed-insights"
+  ]
 }
